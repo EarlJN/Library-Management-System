@@ -181,7 +181,7 @@ Partial Class ForgotPass
         Me.BtnCreate.Name = "BtnCreate"
         Me.BtnCreate.Size = New System.Drawing.Size(260, 39)
         Me.BtnCreate.TabIndex = 148
-        Me.BtnCreate.Text = "Create Account"
+        Me.BtnCreate.Text = "Change Password"
         Me.BtnCreate.UseVisualStyleBackColor = False
         '
         'TxtAccID

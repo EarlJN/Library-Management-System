@@ -98,7 +98,7 @@ Public Class Main
         HomeUser.TxtPhone.Text = GetValue("userlist", "PHONENO", usid)
         HomeUser.TxtEmail.Text = GetValue("userlist", "EMAIL", usid)
         HomeUser.TxtBod.Text = GetValue("userlist", "BIRTHDATE", usid)
-        HomeUser.PicUser.ImageLocation = "C:\Users\Earl\Desktop\AP-LibraryManagementSystem\bin\Release\net6.0-windows\" & GetValue("userlist", "PATH", usid)
+        HomeUser.PicUser.ImageLocation = "C:\Users\Earl\Desktop\Library-Management-System\bin\Release\net6.0-windows\" & GetValue("userlist", "PATH", usid)
         ShowIssuedBooksUser(usid)
 
     End Sub
@@ -109,11 +109,11 @@ Public Class Main
         HomeAdmin.TotBooks.Text = GetTotalBooks()
         HomeAdmin.TotUser.Text = GetTotalUser()
         HomeAdmin.ToReturn.Text = GetTotalIssuedBooksLost()
-        HomeAdmin.PictureBox1.ImageLocation = "C:\Users\Earl\Desktop\AP-LibraryManagementSystem\bin\Release\net6.0-windows\" & GetLastRow("booklist", 0)
-        HomeAdmin.PictureBox2.ImageLocation = "C:\Users\Earl\Desktop\AP-LibraryManagementSystem\bin\Release\net6.0-windows\" & GetLastRow("booklist", 1)
-        HomeAdmin.PictureBox3.ImageLocation = "C:\Users\Earl\Desktop\AP-LibraryManagementSystem\bin\Release\net6.0-windows\" & GetLastRow("booklist", 2)
-        HomeAdmin.PictureBox4.ImageLocation = "C:\Users\Earl\Desktop\AP-LibraryManagementSystem\bin\Release\net6.0-windows\" & GetLastRow("booklist", 3)
-        HomeAdmin.PictureBox5.ImageLocation = "C:\Users\Earl\Desktop\AP-LibraryManagementSystem\bin\Release\net6.0-windows\" & GetLastRow("booklist", 4)
+        HomeAdmin.PictureBox1.ImageLocation = "C:\Users\Earl\Desktop\Library-Management-System\bin\Release\net6.0-windows\" & GetLastRow("booklist", 0)
+        HomeAdmin.PictureBox2.ImageLocation = "C:\Users\Earl\Desktop\Library-Management-System\bin\Release\net6.0-windows\" & GetLastRow("booklist", 1)
+        HomeAdmin.PictureBox3.ImageLocation = "C:\Users\Earl\Desktop\Library-Management-System\bin\Release\net6.0-windows\" & GetLastRow("booklist", 2)
+        HomeAdmin.PictureBox4.ImageLocation = "C:\Users\Earl\Desktop\Library-Management-System\bin\Release\net6.0-windows\" & GetLastRow("booklist", 3)
+        HomeAdmin.PictureBox5.ImageLocation = "C:\Users\Earl\Desktop\Library-Management-System\bin\Release\net6.0-windows\" & GetLastRow("booklist", 4)
         Change_Frame(HomeAdmin, "PanelMain")
     End Sub
 

@@ -48,7 +48,7 @@ Public Class UserEdit
             CbxDelGen.Text = reader(2)
             DtpDelBod.Text = reader(5)
             TxtDelPath.Text = reader(6)
-            PicEditUser.ImageLocation = "C:\Users\Earl\Desktop\AP-LibraryManagementSystem\bin\Release\net6.0-windows\" & TxtDelPath.Text
+            PicEditUser.ImageLocation = "C:\Users\Earl\Desktop\Library-Management-System\bin\Release\net6.0-windows\" & TxtDelPath.Text
 
         End If
 
