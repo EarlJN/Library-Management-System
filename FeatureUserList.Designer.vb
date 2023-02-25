@@ -137,20 +137,20 @@ Partial Class FeatureUserList
         '
         'TxtId
         '
-        Me.TxtId.Enabled = False
         Me.TxtId.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.TxtId.Location = New System.Drawing.Point(239, 50)
         Me.TxtId.Name = "TxtId"
-        Me.TxtId.Size = New System.Drawing.Size(61, 21)
+        Me.TxtId.ReadOnly = True
+        Me.TxtId.Size = New System.Drawing.Size(177, 21)
         Me.TxtId.TabIndex = 105
         Me.TxtId.Tag = """Title Field"""
         '
         'TxtName
         '
-        Me.TxtName.Enabled = False
         Me.TxtName.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.TxtName.Location = New System.Drawing.Point(239, 77)
         Me.TxtName.Name = "TxtName"
+        Me.TxtName.ReadOnly = True
         Me.TxtName.Size = New System.Drawing.Size(177, 21)
         Me.TxtName.TabIndex = 107
         Me.TxtName.Tag = """Title Field"""
@@ -167,10 +167,10 @@ Partial Class FeatureUserList
         '
         'TxtBod
         '
-        Me.TxtBod.Enabled = False
         Me.TxtBod.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.TxtBod.Location = New System.Drawing.Point(239, 104)
         Me.TxtBod.Name = "TxtBod"
+        Me.TxtBod.ReadOnly = True
         Me.TxtBod.Size = New System.Drawing.Size(177, 21)
         Me.TxtBod.TabIndex = 109
         Me.TxtBod.Tag = """Title Field"""
@@ -187,10 +187,10 @@ Partial Class FeatureUserList
         '
         'TxtGender
         '
-        Me.TxtGender.Enabled = False
         Me.TxtGender.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.TxtGender.Location = New System.Drawing.Point(239, 131)
         Me.TxtGender.Name = "TxtGender"
+        Me.TxtGender.ReadOnly = True
         Me.TxtGender.Size = New System.Drawing.Size(177, 21)
         Me.TxtGender.TabIndex = 111
         Me.TxtGender.Tag = """Title Field"""
@@ -207,10 +207,10 @@ Partial Class FeatureUserList
         '
         'TxtEmail
         '
-        Me.TxtEmail.Enabled = False
         Me.TxtEmail.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.TxtEmail.Location = New System.Drawing.Point(239, 158)
         Me.TxtEmail.Name = "TxtEmail"
+        Me.TxtEmail.ReadOnly = True
         Me.TxtEmail.Size = New System.Drawing.Size(177, 21)
         Me.TxtEmail.TabIndex = 113
         Me.TxtEmail.Tag = """Title Field"""
@@ -227,10 +227,10 @@ Partial Class FeatureUserList
         '
         'TxtPhone
         '
-        Me.TxtPhone.Enabled = False
         Me.TxtPhone.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.TxtPhone.Location = New System.Drawing.Point(239, 185)
         Me.TxtPhone.Name = "TxtPhone"
+        Me.TxtPhone.ReadOnly = True
         Me.TxtPhone.Size = New System.Drawing.Size(177, 21)
         Me.TxtPhone.TabIndex = 115
         Me.TxtPhone.Tag = """Title Field"""

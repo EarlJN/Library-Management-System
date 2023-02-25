@@ -61,6 +61,7 @@ Public Class FeatureEditBook
         ClearUser(PnlDelBook, PicDelBook, DtpDelRecieved)
         BtnDelBook.Enabled = False
         BtnEditBook.Enabled = False
+
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles BtnPic.Click

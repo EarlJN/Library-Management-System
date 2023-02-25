@@ -1,20 +1,19 @@
-﻿Imports System.Windows.Markup
-Imports Google.Protobuf.WellKnownTypes
+﻿Imports Microsoft.VisualBasic.ApplicationServices
+Imports System.Net
 Imports MySql.Data.MySqlClient
-Imports Mysqlx.XDevAPI.Relational
-Imports Org.BouncyCastle.Asn1.Cms
+
 
 Module Database
     Public con As New MySqlConnection
     Public cmd As New MySqlCommand
     Sub OpenCon()
-        con.ConnectionString = "server=localhost;username=root;password=earl;database=lms"
+        con.ConnectionString = ConPath
         con.Open()
     End Sub
 
     Sub UpdateTableCatalog(name As String)
         Dim table As New DataTable()
-        con.ConnectionString = "datasource=localhost;username=root;password=earl;database=lms;Convert Zero Datetime=True"
+        con.ConnectionString = SourcePath
         Dim adapter As New MySqlDataAdapter("SELECT `ID`, `ISBN`, `TITLE`, `GENRE`, `AUTHOR`, `PUBLISHER`, `DATE-RCV`, `QTY` From lms." & name & " WHERE INACTIVE NOT in (1)", con)
         adapter.Fill(table)
         FeatureCatalogList.DataGridView1.DataSource = table
@@ -28,7 +27,7 @@ Module Database
     End Sub
     Sub UpdateTableCatalogUser(name As String)
         Dim table As New DataTable()
-        con.ConnectionString = "datasource=localhost;username=root;password=earl;database=lms;Convert Zero Datetime=True"
+        con.ConnectionString = SourcePath
         Dim adapter As New MySqlDataAdapter("SELECT `ID`, `ISBN`, `TITLE`, `GENRE`, `AUTHOR`, `PUBLISHER`, `DATE-RCV`, `QTY` From lms." & name & " WHERE INACTIVE NOT in (1)", con)
         adapter.Fill(table)
         BookUser.DataGridView1.DataSource = table
@@ -43,7 +42,7 @@ Module Database
 
     Sub UpdateTableUser(name As String)
         Dim table As New DataTable()
-        con.ConnectionString = "datasource=localhost;username=root;password=earl;database=lms;Convert Zero Datetime=True"
+        con.ConnectionString = SourcePath
         Dim adapter As New MySqlDataAdapter("SELECT `ID`, `NAME`, `GENDER`, `PHONENO`, `EMAIL`, `BIRTHDATE` From lms." & name & " WHERE INACTIVE NOT in (1)", con)
         adapter.Fill(table)
         FeatureUserList.DataGridView1.DataSource = table
@@ -57,8 +56,8 @@ Module Database
     End Sub
     Sub ShowIssuedBooks(id As String)
         Dim table As New DataTable()
-        con.ConnectionString = "datasource=localhost;username=root;password=earl;database=lms;Convert Zero Datetime=True"
-        Dim adapter As New MySqlDataAdapter("SELECT `BOOK ID`, `BOOK`, `DATE-ISSUED`, `DUE-DATE`,`STATUS` From lms.issuedbooks WHERE `BORROWER ID` = " & id & " AND `STATUS` != 'LOST'", con)
+        con.ConnectionString = SourcePath
+        Dim adapter As New MySqlDataAdapter("SELECT `BOOK`, `STATUS`, `FINE` From lms.issuedbooks WHERE `BORROWER ID` = " & id & " AND `STATUS` != 'LOST'", con)
         adapter.Fill(table)
         FeatureUserList.DataGridView2.DataSource = table
 
@@ -70,8 +69,8 @@ Module Database
     End Sub
     Sub ShowIssuedBooksUser(id As String)
         Dim table As New DataTable()
-        con.ConnectionString = "datasource=localhost;username=root;password=earl;database=lms;Convert Zero Datetime=True"
-        Dim adapter As New MySqlDataAdapter("SELECT `BOOK ID`, `BOOK`, `DATE-ISSUED`, `DUE-DATE`, `STATUS` From lms.issuedbooks WHERE `BORROWER ID` = " & id &" AND `STATUS` != 'LOST'", con)
+        con.ConnectionString = SourcePath
+        Dim adapter As New MySqlDataAdapter("SELECT `BOOK ID`, `BOOK`, `DATE-ISSUED`, `DUE-DATE`, `STATUS` From lms.issuedbooks WHERE `BORROWER ID` = " & id & " AND `STATUS` != 'LOST'", con)
         adapter.Fill(table)
         HomeUser.DataGridView2.DataSource = table
 
@@ -84,8 +83,8 @@ Module Database
     Sub UpdateTableCirculation()
         UpdateStatus()
         Dim table As New DataTable()
-        con.ConnectionString = "datasource=localhost;username=root;password=earl;database=lms;Convert Zero Datetime=True"
-        Dim adapter As New MySqlDataAdapter("SELECT `BORROWER ID`, `BORROWER`, `BOOK ID`, `BOOK`, `DATE-ISSUED`, `DUE-DATE`, `STATUS` From lms.issuedbooks WHERE `STATUS` != 'LOST'", con)
+        con.ConnectionString = SourcePath
+        Dim adapter As New MySqlDataAdapter("SELECT `BORROWER ID`, `BORROWER`, `BOOK ID`, `BOOK`, `DATE-ISSUED`, `DUE-DATE`, `STATUS` From lms.issuedbooks WHERE `STATUS` != 'RETURNED' AND `STATUS` != 'LOST'", con)
         adapter.Fill(table)
 
         For Each DataGridColumns In FeatureCatalogList.DataGridView1.Columns
@@ -99,7 +98,7 @@ Module Database
 
     Sub FilterTable(dgv As DataGridView, cbx As ComboBox, txt As TextBox, name As String)
         Dim table As New DataTable()
-        con.ConnectionString = "datasource=localhost;username=root;password=earl;database=lms;Convert Zero Datetime=True"
+        con.ConnectionString = SourcePath
         Dim adapter As New MySqlDataAdapter("SELECT * From lms." & name & " WHERE INACTIVE NOT in (1)", con)
         adapter.Fill(table)
 
@@ -115,7 +114,7 @@ Module Database
     Sub SpecificFilterTable(database As String, dgv As DataGridView, cbx As ComboBox, txt As TextBox)
         Dim table As New DataTable()
         Dim var = "SELECT * FROM lms." & database & " WHERE " & cbx.SelectedItem & " = " & "'" & txt.Text & "'" & "AND INACTIVE not in (1)"
-        con.ConnectionString = "datasource=localhost;username=root;password=earl;database=lms;Convert Zero Datetime=True"
+        con.ConnectionString = SourcePath
         Dim adapter As New MySqlDataAdapter(var, con)
         adapter.Fill(table)
         dgv.DataSource = table
@@ -124,7 +123,7 @@ Module Database
 
     Sub FilterTableCirc(dgv As DataGridView, cbx As ComboBox, txt As TextBox, name As String)
         Dim table As New DataTable()
-        con.ConnectionString = "datasource=localhost;username=root;password=earl;database=lms;Convert Zero Datetime=True"
+        con.ConnectionString = SourcePath
         Dim adapter As New MySqlDataAdapter("SELECT `BORROWER ID`, `BORROWER`, `BOOK ID`, `BOOK`, `DATE-ISSUED`, `DUE-DATE`, `STATUS` From lms." & name & " WHERE STATUS != 'LOST'", con)
         adapter.Fill(table)
 
@@ -140,7 +139,7 @@ Module Database
     Sub SpecificFilterCirc(database As String, dgv As DataGridView, cbx As ComboBox, txt As TextBox)
         Dim table As New DataTable()
         Dim var = "SELECT `BORROWER ID`, `BORROWER`, `BOOK ID`, `BOOK`, `DATE-ISSUED`, `DUE-DATE`, `STATUS` FROM lms." & database & " WHERE " & cbx.SelectedItem & " = " & "'" & txt.Text & "'"
-        con.ConnectionString = "datasource=localhost;username=root;password=earl;database=lms;Convert Zero Datetime=True"
+        con.ConnectionString = SourcePath
         Dim adapter As New MySqlDataAdapter(var, con)
         adapter.Fill(table)
         dgv.DataSource = table
@@ -173,7 +172,13 @@ Module Database
         cmd.ExecuteNonQuery()
         con.Close()
     End Sub
-
+    Sub SetFine(fine As String, id As String)
+        OpenCon()
+        cmd.Connection = con
+        cmd.CommandText = "UPDATE `lms`.`issuedbooks` SET `FINE` = '" & fine & "' WHERE (`TRANSAC_ID` = '" & id & "');"
+        cmd.ExecuteNonQuery()
+        con.Close()
+    End Sub
     Sub AddQty(id As String)
         Dim qty = GetQty(id)
         OpenCon()
@@ -210,7 +215,7 @@ Module Database
     Public Function GetTransacID(bookid As String, usid As String)
         OpenCon()
         cmd.Connection = con
-        cmd.CommandText = "SELECT * FROM lms.issuedbooks WHERE `BOOK ID`=" & "'" & bookid & "'" & "AND `BORROWER ID`=" & "'" & usid & "'" & " LIMIT 1"
+        cmd.CommandText = "SELECT * FROM lms.issuedbooks WHERE `BOOK ID`=" & "'" & bookid & "'" & "AND `BORROWER ID`=" & "'" & usid & "' AND `STATUS` != 'RETURNED' " & " LIMIT 1"
         Dim result = cmd.ExecuteScalar()
         con.Close()
         Return result
@@ -219,12 +224,19 @@ Module Database
     Public Function CheckDuplicate(userid As String, bookid As String)
         OpenCon()
         cmd.Connection = con
-        cmd.CommandText = "SELECT * FROM issuedbooks WHERE `BORROWER ID` = " & "'" & userid & "'" & " AND `BOOK ID` = " & "'" & bookid & "'"
+        cmd.CommandText = "SELECT * FROM issuedbooks WHERE `BORROWER ID` = " & "'" & userid & "'" & " AND `BOOK ID` = " & "'" & bookid & "' AND `STATUS` != 'RETURNED'"
         Dim result = cmd.ExecuteScalar
         con.Close()
         Return result
     End Function
-
+    Public Function CountOverdue(usid As String)
+        OpenCon()
+        cmd.Connection = con
+        cmd.CommandText = "SELECT COUNT(*) FROM issuedbooks WHERE `BORROWER ID` = " & "'" & usid & "'" & " AND `STATUS` = 'OVERDUE'"
+        Dim result = cmd.ExecuteScalar
+        con.Close()
+        Return result
+    End Function
     Sub DeleteIssued(userid As String, bookid As String)
         OpenCon()
         cmd.Connection = con
@@ -255,7 +267,16 @@ Module Database
     Public Function GetTotalIssuedBooks()
         OpenCon()
         cmd.Connection = con
-        cmd.CommandText = "SELECT COUNT(*) FROM issuedbooks"
+        cmd.CommandText = "SELECT COUNT(*) FROM issuedbooks WHERE `STATUS` != 'LOST'"
+        Dim result = cmd.ExecuteScalar
+        con.Close()
+
+        Return result
+    End Function
+    Public Function GetBooksReturn()
+        OpenCon()
+        cmd.Connection = con
+        cmd.CommandText = "SELECT COUNT(*) FROM issuedbooks WHERE `STATUS` = 'BORROWED'"
         Dim result = cmd.ExecuteScalar
         con.Close()
 
@@ -268,6 +289,14 @@ Module Database
         Dim result = cmd.ExecuteScalar
         con.Close()
 
+        Return result
+    End Function
+    Public Function CountBooksBorrowed(usid As String)
+        OpenCon()
+        cmd.Connection = con
+        cmd.CommandText = "SELECT COUNT(*) FROM issuedbooks WHERE `STATUS` = 'BORROWED' AND `BORROWER ID` = '" & usid & "' "
+        Dim result = cmd.ExecuteScalar
+        con.Close()
         Return result
     End Function
     Public Function GetLastRow(table As String, decrement As Integer)
@@ -309,15 +338,19 @@ Module Database
         idList = GetListOfIssuedID()
 
         For index As Integer = 0 To idList.Count - 1
-            dueDate = GetValueIssued("issuedbooks", "`DUE-DATE`", idList(index))
-            'MsgBox(GetValueIssued("issuedbooks", "STATUS", idList(index)))
 
-            If GetValueIssued("issuedbooks", "STATUS", idList(index)) = "LOST" Then
+            dueDate = GetValueIssued("issuedbooks", "`DUE-DATE`", idList(index))
+
+            If GetValueIssued("issuedbooks", "STATUS", idList(index)) = "LOST" Or GetValueIssued("issuedbooks", "STATUS", idList(index)) = "RETURNED" Then
 
             ElseIf DateTime.Compare(DateTime.Now, dueDate) >= 0 Then
                 SetStatus("OVERDUE", idList(index))
             Else
-                SetStatus("PENDING", idList(index))
+                SetStatus("BORROWED", idList(index))
+            End If
+
+            If GetValueIssued("issuedbooks", "STATUS", idList(index)) = "OVERDUE" Then
+                SetFine(50 * DateDiff("d", dueDate, Now), idList(index))
             End If
 
         Next
@@ -332,7 +365,6 @@ Module Database
         Dim result = cmd.ExecuteScalar()
         con.Close()
 
-
         If result = Nothing Then
             Return False
         End If
@@ -340,5 +372,6 @@ Module Database
         Return True
 
     End Function
+
 
 End Module

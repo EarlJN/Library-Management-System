@@ -74,4 +74,8 @@ Public Class FeatureCatalogList
         Dim edit As New FeatureEditBook
         edit.ShowDialog()
     End Sub
+
+    Private Sub PnlTool_Paint(sender As Object, e As PaintEventArgs)
+
+    End Sub
 End Class

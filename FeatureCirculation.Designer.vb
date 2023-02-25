@@ -123,6 +123,7 @@ Partial Class FeatureCirculation
         '
         'CbxFilter
         '
+        Me.CbxFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CbxFilter.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.CbxFilter.FormattingEnabled = True
         Me.CbxFilter.Items.AddRange(New Object() {"BORROWER", "BOOK"})

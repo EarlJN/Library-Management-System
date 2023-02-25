@@ -13,7 +13,7 @@
             Return
         End If
 
-        If GetTransacID(ReBookID.Text, ReUserID.Text) = Nothing Or GetValueIssued("issuedbooks", "`STATUS`", GetTransacID(ReBookID.Text, ReUserID.Text)) = "LOST" Then
+        If GetTransacID(ReBookID.Text, ReUserID.Text) = Nothing Or GetValueIssued("issuedbooks", "`STATUS`", GetTransacID(ReBookID.Text, ReUserID.Text)) = "LOST" Or GetValueIssued("issuedbooks", "`STATUS`", GetTransacID(ReBookID.Text, ReUserID.Text)) = "RETURNED" Then
             MsgBox("This transaction doesn't exist.")
             Return
         End If
@@ -37,7 +37,8 @@
 
         MsgBox(title & " has been returned by " & name & ".", MsgBoxStyle.OkOnly, "Library Management System")
         AddQty(ReBookID.Text)
-        DeleteIssued(ReUserID.Text, ReBookID.Text)
+        SetStatus("RETURNED", GetTransacID(ReBookID.Text, ReUserID.Text))
+        SetStatus("RETURNED", GetTransacID(ReBookID.Text, ReUserID.Text))
         UpdateTableCirculation()
     End Sub
 

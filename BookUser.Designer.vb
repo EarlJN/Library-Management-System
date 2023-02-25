@@ -211,7 +211,7 @@ Partial Class BookUser
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label2.Location = New System.Drawing.Point(135, 197)
+        Me.Label2.Location = New System.Drawing.Point(135, 169)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(67, 20)
         Me.Label2.TabIndex = 125
@@ -333,7 +333,7 @@ Partial Class BookUser
         '
         Me.LblPublisher.AutoSize = True
         Me.LblPublisher.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.LblPublisher.Location = New System.Drawing.Point(135, 169)
+        Me.LblPublisher.Location = New System.Drawing.Point(135, 196)
         Me.LblPublisher.Name = "LblPublisher"
         Me.LblPublisher.Size = New System.Drawing.Size(65, 20)
         Me.LblPublisher.TabIndex = 73

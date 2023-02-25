@@ -32,6 +32,7 @@ Partial Class Main
         Me.BtnDashboard = New System.Windows.Forms.Button()
         Me.BtnUserList = New System.Windows.Forms.Button()
         Me.BtnCirculation = New System.Windows.Forms.Button()
+        Me.BtnReports = New System.Windows.Forms.Button()
         Me.PanelMain = New System.Windows.Forms.Panel()
         Me.PanelFeature.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -63,7 +64,7 @@ Partial Class Main
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Button1.ForeColor = System.Drawing.Color.DarkRed
-        Me.Button1.Location = New System.Drawing.Point(20, 28)
+        Me.Button1.Location = New System.Drawing.Point(77, 74)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 0
@@ -75,7 +76,7 @@ Partial Class Main
         Me.Welcome.AutoSize = True
         Me.Welcome.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Welcome.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Welcome.Location = New System.Drawing.Point(20, 10)
+        Me.Welcome.Location = New System.Drawing.Point(20, 100)
         Me.Welcome.Name = "Welcome"
         Me.Welcome.Size = New System.Drawing.Size(132, 15)
         Me.Welcome.TabIndex = 1
@@ -89,6 +90,7 @@ Partial Class Main
         Me.TableLayoutPanel1.Controls.Add(Me.BtnDashboard, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.BtnUserList, 0, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.BtnCirculation, 0, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.BtnReports, 0, 4)
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(3, 130)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 6
@@ -187,6 +189,26 @@ Partial Class Main
         Me.BtnCirculation.Text = "Circulation"
         Me.BtnCirculation.UseVisualStyleBackColor = False
         '
+        'BtnReports
+        '
+        Me.BtnReports.BackColor = System.Drawing.Color.Transparent
+        Me.BtnReports.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BtnReports.FlatAppearance.BorderSize = 0
+        Me.BtnReports.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(70, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(114, Byte), Integer))
+        Me.BtnReports.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(104, Byte), Integer))
+        Me.BtnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnReports.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.BtnReports.ForeColor = System.Drawing.Color.FloralWhite
+        Me.BtnReports.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnReports.Location = New System.Drawing.Point(0, 228)
+        Me.BtnReports.Margin = New System.Windows.Forms.Padding(0)
+        Me.BtnReports.Name = "BtnReports"
+        Me.BtnReports.Size = New System.Drawing.Size(206, 57)
+        Me.BtnReports.TabIndex = 7
+        Me.BtnReports.Tag = "1"
+        Me.BtnReports.Text = "Reports"
+        Me.BtnReports.UseVisualStyleBackColor = False
+        '
         'PanelMain
         '
         Me.PanelMain.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -227,4 +249,5 @@ Partial Class Main
     Friend WithEvents Button1 As Button
     Friend WithEvents Welcome As Label
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents BtnReports As Button
 End Class

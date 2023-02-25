@@ -1,6 +1,10 @@
 ﻿Imports System.Text.RegularExpressions
 
 Module Universal
+    Public SourcePath As String = "datasource=localhost;username=root;password=earl;database=lms;Convert Zero Datetime=True"
+    Public ConPath As String = "server=localhost;username=root;password=earl;database=lms"
+    Public BinPath As String = "C:\Users\Earl\Desktop\Library-Management-System\bin\Release\net6.0-windows\"
+
 
     Sub ClearUser(pnl As Panel, pic As PictureBox, dtp As DateTimePicker)
         For Each ctrl As Control In pnl.Controls
