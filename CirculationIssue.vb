@@ -1,17 +1,16 @@
-﻿Public Class CirculationIssue
+﻿Imports System.Drawing.Printing
+
+Public Class CirculationIssue
+
+    Dim WithEvents PD As New PrintDocument
+    Dim PPD As New PrintPreviewDialog
 
     Sub Issue(usid As String, bookid As String)
         Dim name = GetValue("userlist", "NAME", usid)
         Dim title = GetValue("booklist", "TITLE", bookid)
 
-        'If GetValueActive("userlist", "ID", IsUserID.Text) = Nothing Then
-        '    MsgBox("The USER doesn't exist")
-        '    Return
-        'End If
-
         If DtpDue.Text = DtpIs.Text Then
             DtpDue.Text = DtpIs.Value.AddDays(14)
-            MsgBox(DtpDue.Text)
             OpenCon()
             cmd.Connection = con
             cmd.CommandText = "INSERT INTO issuedbooks (`BORROWER ID`, `BORROWER`, `BOOK ID`, `BOOK`, `DATE-ISSUED`, `DUE-DATE`, `STATUS`) VALUES ( '" & usid & "', '" & name & "', '" & bookid & "', '" & title & "', '" & DtpIs.Text & "', '" & DtpDue.Text & "', 'BORROWED' )"
@@ -41,6 +40,8 @@
             Issue(IsUserID.Text, DataGridView1.Rows(index).Cells(0).Value)
         Next
 
+        PPD.Document = PD
+        PPD.ShowDialog()
         DataGridView1.Rows.Clear()
         btnSrcIssue.Enabled = True
         IsUserID.Enabled = True
@@ -52,6 +53,7 @@
         btnIssue.Enabled = False
         IsBookID.Clear()
         IsUserID.Clear()
+
         'Dim name = GetValue("userlist", "NAME", IsUserID.Text)
         'Dim title = GetValue("booklist", "TITLE", IsBookID.Text)
 
@@ -240,4 +242,65 @@
         IsBookID.Clear()
         IsUserID.Clear()
     End Sub
+
+    ' Print Functions
+    Private Sub PD_BeginPrint(sender As Object, e As PrintEventArgs) Handles PD.BeginPrint
+        Dim pagesetup As New PageSettings
+        pagesetup.PaperSize = New PaperSize("Custom", 250, 500)
+        PD.DefaultPageSettings = pagesetup
+    End Sub
+    Private Sub PD_PrintPage(sender As Object, e As PrintPageEventArgs) Handles PD.PrintPage
+        Dim f8 As New Font("Calibri", 8, FontStyle.Regular)
+        Dim f10 As New Font("Calibri", 10, FontStyle.Regular)
+        Dim f10b As New Font("Calibri", 10, FontStyle.Bold)
+        Dim leftmargin As Integer = PD.DefaultPageSettings.Margins.Left
+        Dim centermargin As Integer = PD.DefaultPageSettings.PaperSize.Width / 2
+        Dim rightmargin As Integer = PD.DefaultPageSettings.PaperSize.Width
+        Dim right As New StringFormat
+        Dim center As New StringFormat
+        right.Alignment = StringAlignment.Far
+        center.Alignment = StringAlignment.Center
+
+        Dim line As String
+        line = "****************************************************************"
+        e.Graphics.DrawString("ISSUANCE RECEIPT", f10, Brushes.Black, centermargin, 40, center)
+        e.Graphics.DrawString("HELLO", f10, Brushes.Black, centermargin, 55, center)
+        e.Graphics.DrawString("User's Name : ", f8, Brushes.Black, 5, 75)
+        e.Graphics.DrawString(GetValue("userlist", "NAME", IsUserID.Text), f8, Brushes.Black, 70, 75) ' Customer name placeholder
+        e.Graphics.DrawString("Issue Date: ", f8, Brushes.Black, 5, 85)
+        e.Graphics.DrawString(DtpIs.Text, f8, Brushes.Black, 60, 85) ' Customer add placeholder
+        e.Graphics.DrawString("Item", f8, Brushes.Black, 5, 110)
+        'e.Graphics.DrawString("Item", f8, Brushes.Black, 25, 110)
+        'e.Graphics.DrawString("Due-Date", f8, Brushes.Black, 105, 110, right)
+        e.Graphics.DrawString("Due-Date", f8, Brushes.Black, rightmargin - 5, 110, right)
+        e.Graphics.DrawString(line, f8, Brushes.Black, 0, 120)
+
+        Dim height As Integer
+        Dim i As Long
+        DataGridView1.AllowUserToAddRows = False
+
+        For row As Integer = 0 To DataGridView1.RowCount - 1
+            height += 15
+            ' e.Graphics.DrawString(DataGridView1.Rows(row).Cells(1).Value.ToString, f8, Brushes.Black, 0, 115 + height)
+            e.Graphics.DrawString(DataGridView1.Rows(row).Cells(1).Value.ToString, f8, Brushes.Black, 5, 115 + height)
+            'i = DataGridView1.Rows(1).Cells(1).Value
+            ' DataGridView1.Rows(row).Cells(1).Value = Format(i, "##,##0")
+            e.Graphics.DrawString(DtpDue.Text, f8, Brushes.Black, rightmargin - 5, 115 + height, right)
+            'Dim totalprice As Long
+            'totalprice = Val(DataGridView1.Rows(row).Cells(1).Value * DataGridView1.Rows(row).Cells(2).Value)
+            'e.Graphics.DrawString(totalprice.ToString("##,##0"), f8, Brushes.Black, rightmargin, 115 + height, right)
+
+        Next
+
+        Dim height2 As Integer
+        height2 = 145 + height
+        e.Graphics.DrawString(line, f8, Brushes.Black, 0, height2)
+        e.Graphics.DrawString("Total Books: " & DataGridView1.RowCount, f10b, Brushes.Black, rightmargin, 10 + height2, right)
+        'e.Graphics.DrawString("Discount: " & curdiscount, f8, Brushes.Black, rightmargin, 25 + height2, right)
+        'e.Graphics.DrawString("VAT: " & curvat, f8, Brushes.Black, rightmargin, 35 + height2, right)
+        e.Graphics.DrawString("THANK YOU BORROWING!", f10, Brushes.Black, centermargin, 70 + height2, center)
+
+    End Sub
+
+
 End Class

@@ -71,7 +71,7 @@ Partial Class FeatureCatalogList
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(761, 37)
         Me.Label1.TabIndex = 56
-        Me.Label1.Text = "BOOK LIST"
+        Me.Label1.Text = "BOOK DETAILS"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'DataGridView1
@@ -84,7 +84,7 @@ Partial Class FeatureCatalogList
         Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.EnableHeadersVisualStyles = False
-        Me.DataGridView1.Location = New System.Drawing.Point(18, 256)
+        Me.DataGridView1.Location = New System.Drawing.Point(21, 258)
         Me.DataGridView1.MultiSelect = False
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
@@ -94,7 +94,7 @@ Partial Class FeatureCatalogList
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView1.ShowCellToolTips = False
         Me.DataGridView1.ShowEditingIcon = False
-        Me.DataGridView1.Size = New System.Drawing.Size(725, 219)
+        Me.DataGridView1.Size = New System.Drawing.Size(722, 217)
         Me.DataGridView1.TabIndex = 0
         Me.DataGridView1.TabStop = False
         '
@@ -102,7 +102,7 @@ Partial Class FeatureCatalogList
         '
         Me.LblQty.AutoSize = True
         Me.LblQty.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.LblQty.Location = New System.Drawing.Point(360, 83)
+        Me.LblQty.Location = New System.Drawing.Point(479, 200)
         Me.LblQty.Name = "LblQty"
         Me.LblQty.Size = New System.Drawing.Size(29, 20)
         Me.LblQty.TabIndex = 74
@@ -112,7 +112,7 @@ Partial Class FeatureCatalogList
         '
         Me.LblPublisher.AutoSize = True
         Me.LblPublisher.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.LblPublisher.Location = New System.Drawing.Point(135, 169)
+        Me.LblPublisher.Location = New System.Drawing.Point(179, 194)
         Me.LblPublisher.Name = "LblPublisher"
         Me.LblPublisher.Size = New System.Drawing.Size(65, 20)
         Me.LblPublisher.TabIndex = 73
@@ -122,7 +122,7 @@ Partial Class FeatureCatalogList
         '
         Me.LblID.AutoSize = True
         Me.LblID.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.LblID.Location = New System.Drawing.Point(360, 58)
+        Me.LblID.Location = New System.Drawing.Point(179, 60)
         Me.LblID.Name = "LblID"
         Me.LblID.Size = New System.Drawing.Size(21, 20)
         Me.LblID.TabIndex = 72
@@ -132,7 +132,7 @@ Partial Class FeatureCatalogList
         '
         Me.LblIsbn.AutoSize = True
         Me.LblIsbn.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.LblIsbn.Location = New System.Drawing.Point(135, 141)
+        Me.LblIsbn.Location = New System.Drawing.Point(179, 166)
         Me.LblIsbn.Name = "LblIsbn"
         Me.LblIsbn.Size = New System.Drawing.Size(39, 20)
         Me.LblIsbn.TabIndex = 71
@@ -142,7 +142,7 @@ Partial Class FeatureCatalogList
         '
         Me.LblGenre.AutoSize = True
         Me.LblGenre.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.LblGenre.Location = New System.Drawing.Point(135, 115)
+        Me.LblGenre.Location = New System.Drawing.Point(179, 140)
         Me.LblGenre.Name = "LblGenre"
         Me.LblGenre.Size = New System.Drawing.Size(46, 20)
         Me.LblGenre.TabIndex = 70
@@ -152,7 +152,7 @@ Partial Class FeatureCatalogList
         '
         Me.LblAuthor.AutoSize = True
         Me.LblAuthor.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.LblAuthor.Location = New System.Drawing.Point(135, 88)
+        Me.LblAuthor.Location = New System.Drawing.Point(179, 113)
         Me.LblAuthor.Name = "LblAuthor"
         Me.LblAuthor.Size = New System.Drawing.Size(47, 20)
         Me.LblAuthor.TabIndex = 69
@@ -162,7 +162,7 @@ Partial Class FeatureCatalogList
         '
         Me.LblTitle.AutoSize = True
         Me.LblTitle.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.LblTitle.Location = New System.Drawing.Point(135, 61)
+        Me.LblTitle.Location = New System.Drawing.Point(179, 86)
         Me.LblTitle.Name = "LblTitle"
         Me.LblTitle.Size = New System.Drawing.Size(33, 20)
         Me.LblTitle.TabIndex = 68
@@ -170,9 +170,9 @@ Partial Class FeatureCatalogList
         '
         'BLPic
         '
-        Me.BLPic.Location = New System.Drawing.Point(21, 63)
+        Me.BLPic.Location = New System.Drawing.Point(21, 60)
         Me.BLPic.Name = "BLPic"
-        Me.BLPic.Size = New System.Drawing.Size(108, 153)
+        Me.BLPic.Size = New System.Drawing.Size(152, 192)
         Me.BLPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.BLPic.TabIndex = 67
         Me.BLPic.TabStop = False
@@ -197,7 +197,7 @@ Partial Class FeatureCatalogList
         '
         Me.TxtTitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TxtTitle.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.TxtTitle.Location = New System.Drawing.Point(206, 60)
+        Me.TxtTitle.Location = New System.Drawing.Point(250, 85)
         Me.TxtTitle.MaxLength = 150
         Me.TxtTitle.Name = "TxtTitle"
         Me.TxtTitle.ReadOnly = True
@@ -209,7 +209,7 @@ Partial Class FeatureCatalogList
         '
         Me.TxtAuthor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TxtAuthor.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.TxtAuthor.Location = New System.Drawing.Point(206, 87)
+        Me.TxtAuthor.Location = New System.Drawing.Point(250, 112)
         Me.TxtAuthor.Name = "TxtAuthor"
         Me.TxtAuthor.ReadOnly = True
         Me.TxtAuthor.Size = New System.Drawing.Size(148, 21)
@@ -220,7 +220,7 @@ Partial Class FeatureCatalogList
         '
         Me.TxtGenre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TxtGenre.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.TxtGenre.Location = New System.Drawing.Point(206, 114)
+        Me.TxtGenre.Location = New System.Drawing.Point(250, 139)
         Me.TxtGenre.Name = "TxtGenre"
         Me.TxtGenre.ReadOnly = True
         Me.TxtGenre.Size = New System.Drawing.Size(148, 21)
@@ -231,7 +231,7 @@ Partial Class FeatureCatalogList
         '
         Me.TxtIsbn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TxtIsbn.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.TxtIsbn.Location = New System.Drawing.Point(206, 141)
+        Me.TxtIsbn.Location = New System.Drawing.Point(250, 166)
         Me.TxtIsbn.MaxLength = 10
         Me.TxtIsbn.Name = "TxtIsbn"
         Me.TxtIsbn.ReadOnly = True
@@ -243,10 +243,10 @@ Partial Class FeatureCatalogList
         '
         Me.TxtId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TxtId.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.TxtId.Location = New System.Drawing.Point(395, 58)
+        Me.TxtId.Location = New System.Drawing.Point(250, 58)
         Me.TxtId.Name = "TxtId"
         Me.TxtId.ReadOnly = True
-        Me.TxtId.Size = New System.Drawing.Size(56, 21)
+        Me.TxtId.Size = New System.Drawing.Size(148, 21)
         Me.TxtId.TabIndex = 122
         Me.TxtId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -254,7 +254,7 @@ Partial Class FeatureCatalogList
         '
         Me.TxtDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TxtDate.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.TxtDate.Location = New System.Drawing.Point(206, 195)
+        Me.TxtDate.Location = New System.Drawing.Point(250, 220)
         Me.TxtDate.Name = "TxtDate"
         Me.TxtDate.ReadOnly = True
         Me.TxtDate.Size = New System.Drawing.Size(148, 21)
@@ -265,7 +265,7 @@ Partial Class FeatureCatalogList
         '
         Me.TxtQty.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TxtQty.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.TxtQty.Location = New System.Drawing.Point(395, 85)
+        Me.TxtQty.Location = New System.Drawing.Point(514, 202)
         Me.TxtQty.Name = "TxtQty"
         Me.TxtQty.ReadOnly = True
         Me.TxtQty.Size = New System.Drawing.Size(56, 21)
@@ -276,7 +276,7 @@ Partial Class FeatureCatalogList
         '
         Me.TxtPublisher.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TxtPublisher.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.TxtPublisher.Location = New System.Drawing.Point(206, 168)
+        Me.TxtPublisher.Location = New System.Drawing.Point(250, 193)
         Me.TxtPublisher.Name = "TxtPublisher"
         Me.TxtPublisher.ReadOnly = True
         Me.TxtPublisher.Size = New System.Drawing.Size(148, 21)
@@ -287,7 +287,7 @@ Partial Class FeatureCatalogList
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label2.Location = New System.Drawing.Point(135, 197)
+        Me.Label2.Location = New System.Drawing.Point(179, 222)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(67, 20)
         Me.Label2.TabIndex = 125

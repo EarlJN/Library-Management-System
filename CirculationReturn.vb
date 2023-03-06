@@ -3,7 +3,7 @@
         Dim name = GetValue("userlist", "NAME", usid)
         Dim title = GetValue("booklist", "TITLE", bookid)
 
-        AddQty(ReBookID.Text)
+        AddQty(bookid)
         SetStatus("RETURNED", GetTransacID(bookid, usid))
         SetReturnDate(DateTime.Now.ToString("yyyy-MM-dd"), GetTransacID(bookid, usid))
         UpdateTableCirculation()
