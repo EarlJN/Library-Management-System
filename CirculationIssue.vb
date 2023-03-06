@@ -4,13 +4,14 @@
         Dim name = GetValue("userlist", "NAME", usid)
         Dim title = GetValue("booklist", "TITLE", bookid)
 
-        If GetValueActive("userlist", "ID", IsUserID.Text) = Nothing Then
-            MsgBox("The USER doesn't exist")
-            Return
-        End If
+        'If GetValueActive("userlist", "ID", IsUserID.Text) = Nothing Then
+        '    MsgBox("The USER doesn't exist")
+        '    Return
+        'End If
 
-        If DtpDue.Value = DtpIs.Value Then
-            DtpDue.Value = DtpIs.Value.AddDays(14)
+        If DtpDue.Text = DtpIs.Text Then
+            DtpDue.Text = DtpIs.Value.AddDays(14)
+            MsgBox(DtpDue.Text)
             OpenCon()
             cmd.Connection = con
             cmd.CommandText = "INSERT INTO issuedbooks (`BORROWER ID`, `BORROWER`, `BOOK ID`, `BOOK`, `DATE-ISSUED`, `DUE-DATE`, `STATUS`) VALUES ( '" & usid & "', '" & name & "', '" & bookid & "', '" & title & "', '" & DtpIs.Text & "', '" & DtpDue.Text & "', 'BORROWED' )"
@@ -193,6 +194,7 @@
 
 
         DataGridView1.Rows.Add(New String() {IsBookID.Text, GetValue("booklist", "TITLE", IsBookID.Text)})
+        IsBookID.Clear()
 
     End Sub
 

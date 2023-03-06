@@ -17,12 +17,14 @@ Module Database
         Dim adapter As New MySqlDataAdapter("SELECT `ID`, `ISBN`, `TITLE`, `GENRE`, `AUTHOR`, `PUBLISHER`, `DATE-RCV`, `QTY` From lms." & name & " WHERE INACTIVE NOT in (1)", con)
         adapter.Fill(table)
         FeatureCatalogList.DataGridView1.DataSource = table
+        BookCatalog.DataGridView1.DataSource = table
 
         For Each DataGridColumns In FeatureCatalogList.DataGridView1.Columns
             DataGridColumns.SortMode = DataGridViewColumnSortMode.NotSortable
         Next
 
         FeatureCatalogList.DataGridView1.CurrentCell = Nothing
+        BookCatalog.DataGridView1.CurrentCell = Nothing
 
     End Sub
     Sub UpdateTableCatalogUser(name As String)
@@ -176,6 +178,13 @@ Module Database
         OpenCon()
         cmd.Connection = con
         cmd.CommandText = "UPDATE `lms`.`issuedbooks` SET `FINE` = '" & fine & "' WHERE (`TRANSAC_ID` = '" & id & "');"
+        cmd.ExecuteNonQuery()
+        con.Close()
+    End Sub
+    Sub SetReturnDate(returndate As String, id As String)
+        OpenCon()
+        cmd.Connection = con
+        cmd.CommandText = "UPDATE `lms`.`issuedbooks` SET `DATE-RETURNED` = '" & returndate & "' WHERE (`TRANSAC_ID` = '" & id & "');"
         cmd.ExecuteNonQuery()
         con.Close()
     End Sub

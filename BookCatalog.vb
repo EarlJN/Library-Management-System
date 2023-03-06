@@ -1,5 +1,4 @@
-﻿
-Public Class FeatureCatalogList
+﻿Public Class BookCatalog
     Private Sub DataGridView1_SelectColum(sender As Object, e As EventArgs) Handles DataGridView1.CellClick
         TxtId.Text = DataGridView1.Rows(DataGridView1.CurrentCell.RowIndex).Cells(0).Value
         TxtIsbn.Text = DataGridView1.Rows(DataGridView1.CurrentCell.RowIndex).Cells(1).Value
@@ -33,7 +32,7 @@ Public Class FeatureCatalogList
 
     Private Sub BtnResetFilter_Click(sender As Object, e As EventArgs) Handles BtnResetFilter.Click
         UpdateTableCatalog("booklist")
-        ClearUser(PnlBookList, BLPic)
+        'ClearUser(BookCatalog, BLPic)
         TxtFilter.Clear()
         CbxFilter.Text = ""
 
@@ -63,21 +62,5 @@ Public Class FeatureCatalogList
             TxtFilter.Clear()
 
         End If
-    End Sub
-
-    Private Sub BtnAddBook_Click(sender As Object, e As EventArgs) Handles BtnAddBook.Click
-        Dim add As New FeatureAddBook
-        add.ShowDialog()
-    End Sub
-
-    Private Sub BtnEditBook_Click(sender As Object, e As EventArgs) Handles BtnEditBook.Click
-        Dim edit As New FeatureEditBook
-        edit.ShowDialog()
-    End Sub
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        'Dim cat As New BookCatalog
-        'cat.ShowDialog()
-        BookCatalog.Show()
-        UpdateTableCatalog("booklist")
     End Sub
 End Class

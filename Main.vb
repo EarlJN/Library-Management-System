@@ -122,9 +122,19 @@ Public Class Main
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles BtnReports.Click
+        'Dim time As DateTime = DateTime.Now
+        'Dim format As String = "yyyy-MM-dd"
         'SetStatus("RETURNED", 126)
         'UpdateStatus()
-        MsgBox(CountOverdue("3"))
+
+        'MsgBox(time.ToString(format))
+        'SetReturnDate(time.ToString(format), "161")
+        'MsgBox(GetValueIssued("issuedbooks", "`DATE-RETURNED`", "161"))
+        'MsgBox(GetValue("booklist", "`DATE-RCV`", "1"))
+
+        'MsgBox(GetValueIssued("issuedbooks", "BOOK", "163"))
+        'MsgBox(GetValueIssued("issuedbooks", "'DUE-DATE'", "163"))
+        'MsgBox(GetValueIssued("issuedbooks", "'DATE-RETURNED'", "163"))
 
     End Sub
 End Class

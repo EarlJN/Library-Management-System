@@ -41,6 +41,7 @@ Partial Class CirculationReturn
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.BookID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.book = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.STATUS = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -139,6 +140,7 @@ Partial Class CirculationReturn
         'cbxLost
         '
         Me.cbxLost.AutoSize = True
+        Me.cbxLost.Enabled = False
         Me.cbxLost.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.cbxLost.Location = New System.Drawing.Point(12, 238)
         Me.cbxLost.Name = "cbxLost"
@@ -229,7 +231,7 @@ Partial Class CirculationReturn
         Me.DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.DataGridView1.ColumnHeadersVisible = False
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.BookID, Me.book})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.BookID, Me.book, Me.STATUS})
         Me.DataGridView1.Location = New System.Drawing.Point(9, 300)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
@@ -252,6 +254,12 @@ Partial Class CirculationReturn
         Me.book.Name = "book"
         Me.book.ReadOnly = True
         Me.book.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'STATUS
+        '
+        Me.STATUS.HeaderText = "STATUS"
+        Me.STATUS.Name = "STATUS"
+        Me.STATUS.ReadOnly = True
         '
         'CirculationReturn
         '
@@ -301,4 +309,5 @@ Partial Class CirculationReturn
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents BookID As DataGridViewTextBoxColumn
     Friend WithEvents book As DataGridViewTextBoxColumn
+    Friend WithEvents STATUS As DataGridViewTextBoxColumn
 End Class
