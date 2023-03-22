@@ -85,7 +85,7 @@ Module Database
     Sub ShowToReturn(id As String)
         Dim table As New DataTable()
         con.ConnectionString = SourcePath
-        Dim adapter As New MySqlDataAdapter("SELECT `BOOK ID`, `BOOK`, `DATE-ISSUED`, `DUE-DATE`From lms.issuedbooks WHERE `BORROWER ID` = " & id & " AND `STATUS` = 'BORROWED' ", con)
+        Dim adapter As New MySqlDataAdapter("SELECT `BOOK ID`, `BOOK`, `DATE-ISSUED`, `DUE-DATE`From lms.issuedbooks WHERE `BORROWER ID` = " & id & " AND (`STATUS` = 'BORROWED' OR `STATUS` = 'OVERDUE') ", con)
         adapter.Fill(table)
         CirculationReturn.DataGridView1.DataSource = table
 
@@ -262,7 +262,7 @@ Module Database
     Public Function CountToReturn(usid As String)
         OpenCon()
         cmd.Connection = con
-        cmd.CommandText = "SELECT COUNT(*) FROM issuedbooks WHERE `BORROWER ID` = " & "'" & usid & "'" & " AND `STATUS` = 'BORROWED'"
+        cmd.CommandText = "SELECT COUNT(*) FROM issuedbooks WHERE `BORROWER ID` = " & "'" & usid & "'" & " AND (`STATUS` = 'BORROWED' OR `STATUS` = 'OVERDUE')"
         Dim result = cmd.ExecuteScalar
         con.Close()
         Return result

@@ -87,6 +87,8 @@ Public Class CirculationReturn
     End Sub
 
     Private Sub btnSrcIssue_Click(sender As Object, e As EventArgs) Handles btnSrcIssue.Click
+
+        ReUserID.Enabled = False
         btncount = CountToReturn(ReUserID.Text)
         btnSrcIssue.Enabled = False
         btnCnlIssue.Enabled = True
@@ -100,10 +102,15 @@ Public Class CirculationReturn
     End Sub
 
     Private Sub btnCnlIssue_Click(sender As Object, e As EventArgs) Handles btnCnlIssue.Click
+        ReUserID.Clear()
+        ReUserID.Enabled = True
         btnSrcIssue.Enabled = True
         btnCnlIssue.Enabled = False
-        DataGridView1.Rows.Clear()
+        DataGridView1.DataSource = Nothing
         ReUserID.Clear()
+        For i As Integer = 0 To 4
+            btns(i).Visible = False
+        Next
     End Sub
 
     Private Sub btnDelIssue_Click(sender As Object, e As EventArgs)
@@ -220,5 +227,9 @@ Public Class CirculationReturn
         msg += "has been returned in " & DateTime.Now
         MsgBox(msg, MsgBoxStyle.OkOnly, "Library Management System")
         btncount = 0
+
+        For i As Integer = 0 To 4
+            btns(i).Visible = False
+        Next
     End Sub
 End Class
