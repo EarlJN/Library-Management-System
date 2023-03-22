@@ -82,6 +82,19 @@ Module Database
 
         FeatureUserList.DataGridView2.CurrentCell = Nothing
     End Sub
+    Sub ShowToReturn(id As String)
+        Dim table As New DataTable()
+        con.ConnectionString = SourcePath
+        Dim adapter As New MySqlDataAdapter("SELECT `BOOK ID`, `BOOK`, `DATE-ISSUED`, `DUE-DATE`From lms.issuedbooks WHERE `BORROWER ID` = " & id & " AND `STATUS` = 'BORROWED' ", con)
+        adapter.Fill(table)
+        CirculationReturn.DataGridView1.DataSource = table
+
+        'For Each DataGridColumns In CirculationReturn.DataGridView1.Columns
+        '    DataGridColumns.SortMode = DataGridViewColumnSortMode.NotSortable
+        'Next
+
+        CirculationReturn.DataGridView1.CurrentCell = Nothing
+    End Sub
     Sub UpdateTableCirculation()
         UpdateStatus()
         Dim table As New DataTable()
@@ -242,6 +255,14 @@ Module Database
         OpenCon()
         cmd.Connection = con
         cmd.CommandText = "SELECT COUNT(*) FROM issuedbooks WHERE `BORROWER ID` = " & "'" & usid & "'" & " AND `STATUS` = 'OVERDUE'"
+        Dim result = cmd.ExecuteScalar
+        con.Close()
+        Return result
+    End Function
+    Public Function CountToReturn(usid As String)
+        OpenCon()
+        cmd.Connection = con
+        cmd.CommandText = "SELECT COUNT(*) FROM issuedbooks WHERE `BORROWER ID` = " & "'" & usid & "'" & " AND `STATUS` = 'BORROWED'"
         Dim result = cmd.ExecuteScalar
         con.Close()
         Return result
