@@ -1,4 +1,5 @@
-﻿Imports System.Text.RegularExpressions
+﻿Imports System.Drawing.Printing
+Imports System.Text.RegularExpressions
 
 Module Universal
     Public SourcePath As String = "datasource=localhost;username=root;password=earl;database=lms;Convert Zero Datetime=True"
@@ -64,4 +65,5 @@ Module Universal
         'If all checks pass, password is valid
         Return True
     End Function
+
 End Module

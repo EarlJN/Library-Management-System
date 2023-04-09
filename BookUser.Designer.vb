@@ -215,7 +215,8 @@ Partial Class BookUser
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(67, 20)
         Me.Label2.TabIndex = 125
-        Me.Label2.Text = "Date-RCV"
+        Me.Label2.Text = "
+"
         '
         'TxtQty
         '

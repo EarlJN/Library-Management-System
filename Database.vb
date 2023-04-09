@@ -1,6 +1,7 @@
 ﻿Imports Microsoft.VisualBasic.ApplicationServices
 Imports System.Net
 Imports MySql.Data.MySqlClient
+Imports Mysqlx
 
 
 Module Database
@@ -373,14 +374,17 @@ Module Database
 
             If GetValueIssued("issuedbooks", "STATUS", idList(index)) = "LOST" Or GetValueIssued("issuedbooks", "STATUS", idList(index)) = "RETURNED" Then
 
-            ElseIf DateTime.Compare(DateTime.Now, dueDate) >= 0 Then
+            ElseIf DateTime.Compare(DateTime.Now.ToString("yyyy-MM-dd"), dueDate) > 0 Then
                 SetStatus("OVERDUE", idList(index))
-            Else
+            ElseIf DateTime.Compare(DateTime.Now.ToString("yyyy-MM-dd"), dueDate) <= 0 Then
                 SetStatus("BORROWED", idList(index))
             End If
 
+            'If DateTime.Compare(DateTime.Now.ToString("yyyy-MM-dd"), dueDate) = 0 Then
+            '    SetStatus("BORROWED", idList(index))
+            'End If
             If GetValueIssued("issuedbooks", "STATUS", idList(index)) = "OVERDUE" Then
-                SetFine(50 * DateDiff("d", dueDate, Now), idList(index))
+                SetFine(10 * DateDiff("d", dueDate, Now), idList(index))
             End If
 
         Next
@@ -403,5 +407,111 @@ Module Database
 
     End Function
 
+    Sub ReportShowOverdue()
+        Dim table As New DataTable()
+        con.ConnectionString = SourcePath
+        Dim adapter As New MySqlDataAdapter("SELECT `BORROWER`, `BOOK`, `DATE-ISSUED`, `DUE-DATE`, `STATUS`, `FINE` From lms.issuedbooks WHERE `DUE-DATE` < CURDATE() AND `STATUS` = 'OVERDUE' ", con)
+        adapter.Fill(table)
+
+        'For Each DataGridColumns In FeatureCatalogList.DataGridView1.Columns
+        '    DataGridColumns.SortMode = DataGridViewColumnSortMode.NotSortable
+        'Next
+
+        Reports.DataGridView1.DataSource = table
+        Reports.DataGridView1.CurrentCell = Nothing
+
+    End Sub
+    Sub ReportShowAll()
+        Dim table As New DataTable()
+        con.ConnectionString = SourcePath
+        Dim adapter As New MySqlDataAdapter("SELECT `BORROWER`, `BOOK`, `DATE-ISSUED`, `DUE-DATE`, `STATUS` From lms.issuedbooks", con)
+        adapter.Fill(table)
+        Reports.DataGridView1.DataSource = table
+        Reports.DataGridView1.CurrentCell = Nothing
+    End Sub
+
+    Sub ReportShowLost()
+        Dim table As New DataTable()
+        con.ConnectionString = SourcePath
+        Dim adapter As New MySqlDataAdapter("SELECT `BORROWER`, `BOOK`, `DATE-ISSUED`, `DUE-DATE`, `DATE-RETURNED`, `STATUS` From lms.issuedbooks WHERE `STATUS` = 'LOST' ", con)
+        adapter.Fill(table)
+
+        'For Each DataGridColumns In FeatureCatalogList.DataGridView1.Columns
+        '    DataGridColumns.SortMode = DataGridViewColumnSortMode.NotSortable
+        'Next
+
+        Reports.DataGridView1.DataSource = table
+        Reports.DataGridView1.CurrentCell = Nothing
+
+    End Sub
+
+    Sub ReportReturned()
+
+        Dim table As New DataTable()
+        con.ConnectionString = SourcePath
+        Dim adapter As New MySqlDataAdapter("SELECT `BORROWER`, `BOOK`, `DATE-ISSUED`, `DUE-DATE`, `DATE-RETURNED` From lms.issuedbooks WHERE `STATUS` = 'RETURNED' ", con)
+        adapter.Fill(table)
+
+        'For Each DataGridColumns In FeatureCatalogList.DataGridView1.Columns
+        '    DataGridColumns.SortMode = DataGridViewColumnSortMode.NotSortable
+        'Next
+        Reports.DataGridView1.DataSource = table
+        Reports.DataGridView1.CurrentCell = Nothing
+
+    End Sub
+
+    Sub ReportIssued()
+
+        Dim table As New DataTable()
+        con.ConnectionString = SourcePath
+        Dim adapter As New MySqlDataAdapter("SELECT `BORROWER`, `BOOK`, `DATE-ISSUED`, `DUE-DATE`, `STATUS` From lms.issuedbooks WHERE `STATUS` = 'BORROWED' ", con)
+        adapter.Fill(table)
+
+        Reports.DataGridView1.DataSource = table
+        Reports.DataGridView1.CurrentCell = Nothing
+
+    End Sub
+
+    Sub ReportBetweenDatesReturned(datetype As String)
+        Dim table As New DataTable()
+        con.ConnectionString = SourcePath
+        cmd.Connection = con
+        cmd.CommandText = "SELECT `BORROWER`, `BOOK`, `DATE-ISSUED`, `DUE-DATE`, `DATE-RETURNED` FROM lms.issuedbooks WHERE `" & datetype & "` BETWEEN @startdate AND @enddate AND `STATUS` = 'Returned'"
+        cmd.Parameters.AddWithValue("@startdate", Reports.DtpIs.Text)
+        cmd.Parameters.AddWithValue("@enddate", Reports.DtpDue.Text)
+        Dim adapter As New MySqlDataAdapter(cmd)
+        adapter.Fill(table)
+        Reports.DataGridView1.DataSource = table
+        Reports.DataGridView1.CurrentCell = Nothing
+        cmd.Parameters.Clear()
+    End Sub
+
+    Sub ReportBetweenDatesLost(datetype As String)
+        Dim table As New DataTable()
+        con.ConnectionString = SourcePath
+        cmd.Connection = con
+        cmd.CommandText = "SELECT `BORROWER`, `BOOK`, `DATE-ISSUED`, `DUE-DATE`, `DATE-RETURNED` FROM lms.issuedbooks WHERE `" & datetype & "` BETWEEN @startdate AND @enddate AND `STATUS` = 'LOST'"
+        cmd.Parameters.AddWithValue("@startdate", Reports.DtpIs.Text)
+        cmd.Parameters.AddWithValue("@enddate", Reports.DtpDue.Text)
+        Dim adapter As New MySqlDataAdapter(cmd)
+        adapter.Fill(table)
+        Reports.DataGridView1.DataSource = table
+        Reports.DataGridView1.CurrentCell = Nothing
+        cmd.Parameters.Clear()
+    End Sub
+
+    Sub ReportBetweenDatesIssued(datetype As String)
+        Dim table As New DataTable()
+        con.ConnectionString = SourcePath
+        cmd.Connection = con
+        cmd.CommandText = "SELECT `BORROWER`, `BOOK`, `DATE-ISSUED`, `DUE-DATE`, `STATUS` FROM lms.issuedbooks WHERE `" & datetype & "` BETWEEN @startdate AND @enddate AND `STATUS` = 'BORROWED'"
+        cmd.Parameters.AddWithValue("@startdate", Reports.DtpIs.Text)
+        cmd.Parameters.AddWithValue("@enddate", Reports.DtpDue.Text)
+        Dim adapter As New MySqlDataAdapter(cmd)
+        adapter.Fill(table)
+        Reports.DataGridView1.DataSource = table
+        Reports.DataGridView1.CurrentCell = Nothing
+        cmd.Parameters.Clear()
+    End Sub
 
 End Module

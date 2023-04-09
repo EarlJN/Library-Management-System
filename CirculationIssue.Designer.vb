@@ -208,7 +208,6 @@ Partial Class CirculationIssue
         Me.DataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridView1.Size = New System.Drawing.Size(260, 175)
         Me.DataGridView1.TabIndex = 166
-        Me.DataGridView1.Columns(0).Visible = False
         '
         'BookID
         '

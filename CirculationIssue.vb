@@ -125,7 +125,7 @@ Public Class CirculationIssue
 
     Private Sub IsUserID_TextChanged(sender As Object, e As EventArgs) Handles IsUserID.TextChanged
 
-        If GetValue("userlist", "INACTIVE", IsUserID.Text) = 0 Then
+        If GetValue("userlist", "INACTIVE", IsUserID.Text) = 0 And IsUserID.Text.Length > 3 Then
             lblIsName.Text = GetValue("userlist", "NAME", IsUserID.Text)
         Else
             lblIsName.Text = ""
@@ -135,7 +135,8 @@ Public Class CirculationIssue
 
     Private Sub IsBookID_TextChanged(sender As Object, e As EventArgs) Handles IsBookID.TextChanged
 
-        If GetValue("booklist", "INACTIVE", IsBookID.Text) = 0 Then
+
+        If GetValue("booklist", "INACTIVE", IsBookID.Text) = 0 And IsBookID.Text.Length > 5 Then
             lblIsTitle.Text = GetValue("booklist", "TITLE", IsBookID.Text)
         Else
             lblIsTitle.Text = ""
@@ -218,6 +219,11 @@ Public Class CirculationIssue
             Return
         End If
 
+        'If IsUserID.Text.Length < 4 Then
+        '    MsgBox("The USER doesn't exist")
+        '    Return
+        'End If
+
         btnSrcIssue.Enabled = False
         IsUserID.Enabled = False
         btnCnlIssue.Enabled = True
@@ -270,8 +276,6 @@ Public Class CirculationIssue
         e.Graphics.DrawString("Issue Date: ", f8, Brushes.Black, 5, 85)
         e.Graphics.DrawString(DtpIs.Text, f8, Brushes.Black, 60, 85) ' Customer add placeholder
         e.Graphics.DrawString("Item", f8, Brushes.Black, 5, 110)
-        'e.Graphics.DrawString("Item", f8, Brushes.Black, 25, 110)
-        'e.Graphics.DrawString("Due-Date", f8, Brushes.Black, 105, 110, right)
         e.Graphics.DrawString("Due-Date", f8, Brushes.Black, rightmargin - 5, 110, right)
         e.Graphics.DrawString(line, f8, Brushes.Black, 0, 120)
 
@@ -281,26 +285,16 @@ Public Class CirculationIssue
 
         For row As Integer = 0 To DataGridView1.RowCount - 1
             height += 15
-            ' e.Graphics.DrawString(DataGridView1.Rows(row).Cells(1).Value.ToString, f8, Brushes.Black, 0, 115 + height)
             e.Graphics.DrawString(DataGridView1.Rows(row).Cells(1).Value.ToString, f8, Brushes.Black, 5, 115 + height)
-            'i = DataGridView1.Rows(1).Cells(1).Value
-            ' DataGridView1.Rows(row).Cells(1).Value = Format(i, "##,##0")
             e.Graphics.DrawString(DtpDue.Text, f8, Brushes.Black, rightmargin - 5, 115 + height, right)
-            'Dim totalprice As Long
-            'totalprice = Val(DataGridView1.Rows(row).Cells(1).Value * DataGridView1.Rows(row).Cells(2).Value)
-            'e.Graphics.DrawString(totalprice.ToString("##,##0"), f8, Brushes.Black, rightmargin, 115 + height, right)
-
         Next
 
         Dim height2 As Integer
         height2 = 145 + height
         e.Graphics.DrawString(line, f8, Brushes.Black, 0, height2)
         e.Graphics.DrawString("Total Books: " & DataGridView1.RowCount, f10b, Brushes.Black, rightmargin, 10 + height2, right)
-        'e.Graphics.DrawString("Discount: " & curdiscount, f8, Brushes.Black, rightmargin, 25 + height2, right)
-        'e.Graphics.DrawString("VAT: " & curvat, f8, Brushes.Black, rightmargin, 35 + height2, right)
         e.Graphics.DrawString("THANK YOU BORROWING!", f10, Brushes.Black, centermargin, 70 + height2, center)
 
     End Sub
-
 
 End Class

@@ -4,8 +4,10 @@ Imports Org.BouncyCastle.Crypto
 Public Class CirculationReturn
     Dim btncount As Integer
     Dim btns As Button()
+    Dim btnslost As Button()
     Private Sub CirculationReturn_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         btns = {btnReturn1, btnReturn2, btnReturn3, btnReturn4, btnReturn5}
+        btnslost = {}
     End Sub
     Sub ReturnBook(usid As String, bookid As String)
         Dim name = GetValue("userlist", "NAME", usid)
@@ -35,45 +37,6 @@ Public Class CirculationReturn
         btnCnlIssue.Enabled = False
         ReUserID.Clear()
 
-        'Dim name = GetValue("userlist", "NAME", ReUserID.Text)
-        'Dim title = GetValue("booklist", "TITLE", ReBookID.Text)
-
-        'If GetValueActive("userlist", "ID", ReUserID.Text) = Nothing Then
-        '    MsgBox("The USER doesn't exist")
-        '    Return
-        'End If
-
-        'If GetValueActive("booklist", "ID", ReBookID.Text) = Nothing Then
-        '    MsgBox("The BOOK doesn't exist")
-        '    Return
-        'End If
-
-        'If GetTransacID(ReBookID.Text, ReUserID.Text) = Nothing Or GetValueIssued("issuedbooks", "`STATUS`", GetTransacID(ReBookID.Text, ReUserID.Text)) = "LOST" Or GetValueIssued("issuedbooks", "`STATUS`", GetTransacID(ReBookID.Text, ReUserID.Text)) = "RETURNED" Then
-        '    MsgBox("This transaction doesn't exist.")
-        '    Return
-        'End If
-
-        'If ReUserID.Text = "" Or ReBookID.Text = "" Then
-        '    MsgBox("Empty field detected, please insert all the necessary details.", MsgBoxStyle.OkOnly, "Library Management System")
-        '    Return
-        'End If
-
-        'If CheckDuplicate(ReUserID.Text, ReBookID.Text) = Nothing & GetValue("booklist", "QTY", ReBookID.Text) > 0 Then
-        '    MsgBox(title & " is not currently issued to " & name & ", Please check the entered details.", MsgBoxStyle.OkOnly, "Library Management System")
-        '    Return
-        'End If
-
-        'If cbxLost.Checked = True Then
-        '    SetStatus("LOST", GetTransacID(ReBookID.Text, ReUserID.Text))
-        '    MsgBox(title & " has been lost by " & name & ".", MsgBoxStyle.OkOnly, "Library Management System")
-        '    UpdateTableCirculation()
-        '    Return
-        'End If
-
-        'MsgBox(title & " has been returned by " & name & ".", MsgBoxStyle.OkOnly, "Library Management System")
-        'AddQty(ReBookID.Text)
-        'SetStatus("RETURNED", GetTransacID(ReBookID.Text, ReUserID.Text))
-        'UpdateTableCirculation()
     End Sub
 
     Private Sub UserID_TextChanged(sender As Object, e As EventArgs) Handles ReUserID.TextChanged
@@ -94,7 +57,7 @@ Public Class CirculationReturn
         btnCnlIssue.Enabled = True
         ShowToReturn(ReUserID.Text)
 
-        For index As Integer = 0 To CountToReturn(ReUserID.Text) - 1
+        For index As Integer = 0 To btncount - 1
             btns(index).Visible = True
         Next
 
@@ -125,9 +88,16 @@ Public Class CirculationReturn
         Dim bookid As String = DataGridView1.Rows(0).Cells(0).Value
         Dim name = GetValue("userlist", "NAME", usid)
         Dim title = GetValue("booklist", "TITLE", bookid)
-        AddQty(bookid)
-        SetStatus("RETURNED", GetTransacID(bookid, usid))
-        SetReturnDate(DateTime.Now.ToString("yyyy-MM-dd"), GetTransacID(bookid, usid))
+        Dim transacid = GetTransacID(bookid, usid)
+        SetReturnDate(DateTime.Now.ToString("yyyy-MM-dd"), transacid)
+
+        If CboxLost.Checked = True Then
+            SetStatus("LOST", transacid)
+        Else
+            SetStatus("RETURNED", transacid)
+            AddQty(bookid)
+        End If
+
         UpdateTableCirculation()
         MsgBox(title & " has been returned by " & name & " in " & DateTime.Now, MsgBoxStyle.OkOnly, "Library Management System")
 
@@ -142,8 +112,14 @@ Public Class CirculationReturn
         Dim bookid As String = DataGridView1.Rows(1).Cells(0).Value
         Dim name = GetValue("userlist", "NAME", usid)
         Dim title = GetValue("booklist", "TITLE", bookid)
-        AddQty(bookid)
-        SetStatus("RETURNED", GetTransacID(bookid, usid))
+        Dim transacid = GetTransacID(bookid, usid)
+
+        If CboxLost.Checked = True Then
+            SetStatus("LOST", transacid)
+        Else
+            SetStatus("RETURNED", transacid)
+            AddQty(bookid)
+        End If
         SetReturnDate(DateTime.Now.ToString("yyyy-MM-dd"), GetTransacID(bookid, usid))
         UpdateTableCirculation()
         MsgBox(title & " has been returned by " & name & " in " & DateTime.Now, MsgBoxStyle.OkOnly, "Library Management System")
@@ -158,8 +134,14 @@ Public Class CirculationReturn
         Dim bookid As String = DataGridView1.Rows(2).Cells(0).Value
         Dim name = GetValue("userlist", "NAME", usid)
         Dim title = GetValue("booklist", "TITLE", bookid)
-        AddQty(bookid)
-        SetStatus("RETURNED", GetTransacID(bookid, usid))
+        Dim transacid = GetTransacID(bookid, usid)
+
+        If CboxLost.Checked = True Then
+            SetStatus("LOST", transacid)
+        Else
+            SetStatus("RETURNED", transacid)
+            AddQty(bookid)
+        End If
         SetReturnDate(DateTime.Now.ToString("yyyy-MM-dd"), GetTransacID(bookid, usid))
         UpdateTableCirculation()
         MsgBox(title & " has been returned by " & name & " in " & DateTime.Now, MsgBoxStyle.OkOnly, "Library Management System")
@@ -174,8 +156,14 @@ Public Class CirculationReturn
         Dim bookid As String = DataGridView1.Rows(3).Cells(0).Value
         Dim name = GetValue("userlist", "NAME", usid)
         Dim title = GetValue("booklist", "TITLE", bookid)
-        AddQty(bookid)
-        SetStatus("RETURNED", GetTransacID(bookid, usid))
+        Dim transacid = GetTransacID(bookid, usid)
+
+        If CboxLost.Checked = True Then
+            SetStatus("LOST", transacid)
+        Else
+            SetStatus("RETURNED", transacid)
+            AddQty(bookid)
+        End If
         SetReturnDate(DateTime.Now.ToString("yyyy-MM-dd"), GetTransacID(bookid, usid))
         UpdateTableCirculation()
         MsgBox(title & " has been returned by " & name & " in " & DateTime.Now, MsgBoxStyle.OkOnly, "Library Management System")
@@ -190,8 +178,14 @@ Public Class CirculationReturn
         Dim bookid As String = DataGridView1.Rows(4).Cells(0).Value
         Dim name = GetValue("userlist", "NAME", usid)
         Dim title = GetValue("booklist", "TITLE", bookid)
-        AddQty(bookid)
-        SetStatus("RETURNED", GetTransacID(bookid, usid))
+        Dim transacid = GetTransacID(bookid, usid)
+
+        If CboxLost.Checked = True Then
+            SetStatus("LOST", transacid)
+        Else
+            SetStatus("RETURNED", transacid)
+            AddQty(bookid)
+        End If
         SetReturnDate(DateTime.Now.ToString("yyyy-MM-dd"), GetTransacID(bookid, usid))
         UpdateTableCirculation()
         MsgBox(title & " has been returned by " & name & " in " & DateTime.Now, MsgBoxStyle.OkOnly, "Library Management System")
@@ -202,34 +196,37 @@ Public Class CirculationReturn
     End Sub
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim length As Integer = CountToReturn(ReUserID.Text) - 1
+        Dim length As Integer = CountToReturn(ReUserID.Text)
         Dim ids As New ArrayList
         Dim books As New ArrayList
         Dim msg As String = "The book/s "
 
-        For i As Integer = 0 To length
+        For i As Integer = 0 To length - 1
             ids.Add(DataGridView1.Rows(i).Cells(0).Value)
         Next
 
-        For index As Integer = 0 To length
+        For i As Integer = 0 To 4
+            btns(i).Visible = False
+        Next
+
+        For index As Integer = 0 To length - 1
             Dim usid As String = ReUserID.Text
             Dim bookid As String = ids(index)
-            Dim name = GetValue("userlist", "NAME", usid)
-            Dim title = GetValue("booklist", "TITLE", bookid)
-            msg += title + ", "
-            AddQty(bookid)
-            SetStatus("RETURNED", GetTransacID(bookid, usid))
-            SetReturnDate(DateTime.Now.ToString("yyyy-MM-dd"), GetTransacID(bookid, usid))
+            Dim transacid = GetTransacID(bookid, usid)
+
+            If CboxLost.Checked = True Then
+                SetStatus("LOST", transacid)
+            Else
+                SetStatus("RETURNED", transacid)
+                AddQty(bookid)
+            End If
+
+            SetReturnDate(DateTime.Now.ToString("yyyy-MM-dd"), transacid)
             UpdateTableCirculation()
-            btns(btncount).Visible = False
             ShowToReturn(usid)
         Next
         msg += "has been returned in " & DateTime.Now
         MsgBox(msg, MsgBoxStyle.OkOnly, "Library Management System")
         btncount = 0
-
-        For i As Integer = 0 To 4
-            btns(i).Visible = False
-        Next
     End Sub
 End Class
