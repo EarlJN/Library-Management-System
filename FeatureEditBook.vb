@@ -86,7 +86,7 @@ Public Class FeatureEditBook
         If result = DialogResult.OK Then
             OpenCon()
             cmd.Connection = con
-            cmd.CommandText = "UPDATE `lms`.`booklist` SET `ISBN` = '" & TxtDelIsbn.Text & "', `PATH` = '" & TxtDelPath.Text & "', `TITLE` = '" & TxtDelTitle.Text & "', `GENRE` = '" & CbxDelGenre.SelectedItem & "', `AUTHOR` = '" & TxtDelAuthor.Text & "', `PUBLISHER` = '" & TxtDelPublisher.Text & "', `PATH` = '" & TxtDelPath.Text & "', `DATE-RCV` = '" & DtpDelRecieved.Text & "', `QTY` = '" & TxtDelQty.Text & "'  WHERE (`ID` = '" & TxtDelId.Text & "');"
+            cmd.CommandText = "UPDATE `lms`.`booklist` SET `ISBN` = '" & TxtDelIsbn.Text & "', `PATH` = '" & TxtDelPath.Text & "', `TITLE` = '" & TxtDelTitle.Text & "', `GENRE` = '" & CbxDelGenre.SelectedItem & "', `AUTHOR` = '" & TxtDelAuthor.Text & "', `PUBLISHER` = '" & TxtDelPublisher.Text & "', `PATH` = '" & TxtDelPath.Text & "', `DATE-PBL` = '" & DtpDelRecieved.Text & "', `QTY` = '" & TxtDelQty.Text & "'  WHERE (`ID` = '" & TxtDelId.Text & "');"
             cmd.ExecuteNonQuery()
             MsgBox("BOOK ID: " & TxtDelId.Text & " is successfully added.")
             con.Close()

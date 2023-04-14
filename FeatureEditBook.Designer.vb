@@ -191,7 +191,7 @@ Partial Class FeatureEditBook
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(98, 20)
         Me.Label16.TabIndex = 110
-        Me.Label16.Text = "Date Recieved"
+        Me.Label16.Text = "Date Published"
         '
         'TxtDelAuthor
         '

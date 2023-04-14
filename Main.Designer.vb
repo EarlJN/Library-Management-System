@@ -34,13 +34,19 @@ Partial Class Main
         Me.BtnCirculation = New System.Windows.Forms.Button()
         Me.BtnReports = New System.Windows.Forms.Button()
         Me.PanelMain = New System.Windows.Forms.Panel()
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
         Me.PanelFeature.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
+        Me.TableLayoutPanel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'PanelFeature
         '
         Me.PanelFeature.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(39, Byte), Integer))
+        Me.PanelFeature.Controls.Add(Me.Button4)
         Me.PanelFeature.Controls.Add(Me.Panel1)
         Me.PanelFeature.Controls.Add(Me.Button1)
         Me.PanelFeature.Controls.Add(Me.Welcome)
@@ -220,6 +226,83 @@ Partial Class Main
         Me.PanelMain.Size = New System.Drawing.Size(785, 565)
         Me.PanelMain.TabIndex = 2
         '
+        'TableLayoutPanel2
+        '
+        Me.TableLayoutPanel2.ColumnCount = 1
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel2.Controls.Add(Me.Button2, 0, 1)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+        Me.TableLayoutPanel2.RowCount = 2
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(200, 100)
+        Me.TableLayoutPanel2.TabIndex = 0
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.Transparent
+        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(70, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(114, Byte), Integer))
+        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(104, Byte), Integer))
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Button2.ForeColor = System.Drawing.Color.FloralWhite
+        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
+        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button2.Location = New System.Drawing.Point(0, 20)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(0)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(200, 57)
+        Me.Button2.TabIndex = 0
+        Me.Button2.Tag = "0"
+        Me.Button2.Text = "Books"
+        Me.Button2.UseVisualStyleBackColor = False
+        '
+        'Button3
+        '
+        Me.Button3.BackColor = System.Drawing.Color.Transparent
+        Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Button3.FlatAppearance.BorderSize = 0
+        Me.Button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(70, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(114, Byte), Integer))
+        Me.Button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(104, Byte), Integer))
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Button3.ForeColor = System.Drawing.Color.FloralWhite
+        Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
+        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button3.Location = New System.Drawing.Point(0, 0)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(0)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(200, 57)
+        Me.Button3.TabIndex = 2
+        Me.Button3.Tag = "3"
+        Me.Button3.Text = "Home"
+        Me.Button3.UseVisualStyleBackColor = False
+        '
+        'Button4
+        '
+        Me.Button4.BackColor = System.Drawing.Color.Transparent
+        Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button4.FlatAppearance.BorderSize = 0
+        Me.Button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(70, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(114, Byte), Integer))
+        Me.Button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(104, Byte), Integer))
+        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button4.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Button4.ForeColor = System.Drawing.Color.FloralWhite
+        Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
+        Me.Button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button4.Location = New System.Drawing.Point(2, 492)
+        Me.Button4.Margin = New System.Windows.Forms.Padding(0)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(206, 38)
+        Me.Button4.TabIndex = 4
+        Me.Button4.Tag = "0"
+        Me.Button4.Text = "Logout"
+        Me.Button4.UseVisualStyleBackColor = False
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -235,6 +318,7 @@ Partial Class Main
         Me.PanelFeature.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
+        Me.TableLayoutPanel2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -250,4 +334,8 @@ Partial Class Main
     Friend WithEvents Welcome As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents BtnReports As Button
+    Friend WithEvents Button4 As Button
+    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Button3 As Button
 End Class

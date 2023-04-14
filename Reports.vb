@@ -13,6 +13,10 @@ Public Class Reports
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        If CbxDate.Text = Nothing Then
+            Return
+        End If
+
         If lblSelected.Text = "RETURNED" Then
             ReportBetweenDatesReturned(CbxDate.Text)
         ElseIf lblSelected.Text = "ISSUED" Then

@@ -14,7 +14,7 @@
         If result = DialogResult.OK Then
             OpenCon()
             cmd.Connection = con
-            cmd.CommandText = "INSERT INTO booklist (`ISBN`,`TITLE`, `GENRE`, `AUTHOR`, `PUBLISHER`, `DATE-RCV`, `QTY`, `PATH`) VALUES ('" & TxtIsbn.Text & "', '" & TxtTitle.Text & "', '" & CbxGenre.SelectedItem & "', '" & TxtAuthor.Text & "', '" & TxtPublisher.Text & "', '" & DtpRecieved.Text & "', '" & TxtQuantity.Text & "', '" & TxtPath.Text & "')"
+            cmd.CommandText = "INSERT INTO booklist (`ISBN`,`TITLE`, `GENRE`, `AUTHOR`, `PUBLISHER`, `DATE-PBL`, `QTY`, `PATH`) VALUES ('" & TxtIsbn.Text & "', '" & TxtTitle.Text & "', '" & CbxGenre.SelectedItem & "', '" & TxtAuthor.Text & "', '" & TxtPublisher.Text & "', '" & DtpRecieved.Text & "', '" & TxtQuantity.Text & "', '" & TxtPath.Text & "')"
             cmd.ExecuteNonQuery()
             MsgBox(TxtTitle.Text & "is successfully added.")
             con.Close()

@@ -4,10 +4,9 @@ Imports Org.BouncyCastle.Crypto
 Public Class CirculationReturn
     Dim btncount As Integer
     Dim btns As Button()
-    Dim btnslost As Button()
     Private Sub CirculationReturn_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         btns = {btnReturn1, btnReturn2, btnReturn3, btnReturn4, btnReturn5}
-        btnslost = {}
+
     End Sub
     Sub ReturnBook(usid As String, bookid As String)
         Dim name = GetValue("userlist", "NAME", usid)
@@ -113,6 +112,7 @@ Public Class CirculationReturn
         Dim name = GetValue("userlist", "NAME", usid)
         Dim title = GetValue("booklist", "TITLE", bookid)
         Dim transacid = GetTransacID(bookid, usid)
+        SetReturnDate(DateTime.Now.ToString("yyyy-MM-dd"), transacid)
 
         If CboxLost.Checked = True Then
             SetStatus("LOST", transacid)
@@ -120,7 +120,7 @@ Public Class CirculationReturn
             SetStatus("RETURNED", transacid)
             AddQty(bookid)
         End If
-        SetReturnDate(DateTime.Now.ToString("yyyy-MM-dd"), GetTransacID(bookid, usid))
+
         UpdateTableCirculation()
         MsgBox(title & " has been returned by " & name & " in " & DateTime.Now, MsgBoxStyle.OkOnly, "Library Management System")
 
@@ -135,14 +135,14 @@ Public Class CirculationReturn
         Dim name = GetValue("userlist", "NAME", usid)
         Dim title = GetValue("booklist", "TITLE", bookid)
         Dim transacid = GetTransacID(bookid, usid)
-
+        SetReturnDate(DateTime.Now.ToString("yyyy-MM-dd"), transacid)
         If CboxLost.Checked = True Then
             SetStatus("LOST", transacid)
         Else
             SetStatus("RETURNED", transacid)
             AddQty(bookid)
         End If
-        SetReturnDate(DateTime.Now.ToString("yyyy-MM-dd"), GetTransacID(bookid, usid))
+
         UpdateTableCirculation()
         MsgBox(title & " has been returned by " & name & " in " & DateTime.Now, MsgBoxStyle.OkOnly, "Library Management System")
 
@@ -157,14 +157,14 @@ Public Class CirculationReturn
         Dim name = GetValue("userlist", "NAME", usid)
         Dim title = GetValue("booklist", "TITLE", bookid)
         Dim transacid = GetTransacID(bookid, usid)
-
+        SetReturnDate(DateTime.Now.ToString("yyyy-MM-dd"), transacid)
         If CboxLost.Checked = True Then
             SetStatus("LOST", transacid)
         Else
             SetStatus("RETURNED", transacid)
             AddQty(bookid)
         End If
-        SetReturnDate(DateTime.Now.ToString("yyyy-MM-dd"), GetTransacID(bookid, usid))
+
         UpdateTableCirculation()
         MsgBox(title & " has been returned by " & name & " in " & DateTime.Now, MsgBoxStyle.OkOnly, "Library Management System")
 
@@ -179,14 +179,14 @@ Public Class CirculationReturn
         Dim name = GetValue("userlist", "NAME", usid)
         Dim title = GetValue("booklist", "TITLE", bookid)
         Dim transacid = GetTransacID(bookid, usid)
-
+        SetReturnDate(DateTime.Now.ToString("yyyy-MM-dd"), transacid)
         If CboxLost.Checked = True Then
             SetStatus("LOST", transacid)
         Else
             SetStatus("RETURNED", transacid)
             AddQty(bookid)
         End If
-        SetReturnDate(DateTime.Now.ToString("yyyy-MM-dd"), GetTransacID(bookid, usid))
+
         UpdateTableCirculation()
         MsgBox(title & " has been returned by " & name & " in " & DateTime.Now, MsgBoxStyle.OkOnly, "Library Management System")
 
@@ -213,7 +213,7 @@ Public Class CirculationReturn
             Dim usid As String = ReUserID.Text
             Dim bookid As String = ids(index)
             Dim transacid = GetTransacID(bookid, usid)
-
+            SetReturnDate(DateTime.Now.ToString("yyyy-MM-dd"), transacid)
             If CboxLost.Checked = True Then
                 SetStatus("LOST", transacid)
             Else
@@ -221,7 +221,6 @@ Public Class CirculationReturn
                 AddQty(bookid)
             End If
 
-            SetReturnDate(DateTime.Now.ToString("yyyy-MM-dd"), transacid)
             UpdateTableCirculation()
             ShowToReturn(usid)
         Next
@@ -229,4 +228,5 @@ Public Class CirculationReturn
         MsgBox(msg, MsgBoxStyle.OkOnly, "Library Management System")
         btncount = 0
     End Sub
+
 End Class

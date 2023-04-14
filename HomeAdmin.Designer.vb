@@ -181,7 +181,7 @@ Partial Class HomeAdmin
         Me.Panel1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Panel1.BackColor = System.Drawing.Color.CornflowerBlue
         Me.Panel1.Controls.Add(Me.Label7)
         Me.Panel1.Controls.Add(Me.PictureBox5)
         Me.Panel1.Controls.Add(Me.PictureBox4)

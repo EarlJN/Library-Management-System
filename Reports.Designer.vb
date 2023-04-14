@@ -31,6 +31,7 @@ Partial Class Reports
         Me.DtpIs = New System.Windows.Forms.DateTimePicker()
         Me.btnPrint = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button5 = New System.Windows.Forms.Button()
         Me.lblSelected = New System.Windows.Forms.Label()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -47,7 +48,6 @@ Partial Class Reports
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
-        Me.Button5 = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -178,6 +178,20 @@ Partial Class Reports
         Me.Panel1.Size = New System.Drawing.Size(761, 491)
         Me.Panel1.TabIndex = 177
         '
+        'Button5
+        '
+        Me.Button5.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(39, Byte), Integer))
+        Me.Button5.FlatAppearance.BorderSize = 0
+        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button5.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Button5.ForeColor = System.Drawing.Color.FloralWhite
+        Me.Button5.Location = New System.Drawing.Point(0, 0)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(71, 30)
+        Me.Button5.TabIndex = 187
+        Me.Button5.Text = "All"
+        Me.Button5.UseVisualStyleBackColor = False
+        '
         'lblSelected
         '
         Me.lblSelected.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(39, Byte), Integer))
@@ -208,7 +222,8 @@ Partial Class Reports
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(410, 56)
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
+        Me.Label4.Location = New System.Drawing.Point(375, 51)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(31, 15)
         Me.Label4.TabIndex = 182
@@ -217,7 +232,8 @@ Partial Class Reports
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(590, 57)
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
+        Me.Label3.Location = New System.Drawing.Point(590, 51)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(19, 15)
         Me.Label3.TabIndex = 181
@@ -226,7 +242,8 @@ Partial Class Reports
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(491, 57)
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Location = New System.Drawing.Point(491, 51)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(35, 15)
         Me.Label2.TabIndex = 180
@@ -237,9 +254,9 @@ Partial Class Reports
         Me.CbxDate.Font = New System.Drawing.Font("Arial Narrow", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.CbxDate.FormattingEnabled = True
         Me.CbxDate.Items.AddRange(New Object() {"DUE-DATE", "DATE-ISSUED", "DATE-RETURNED"})
-        Me.CbxDate.Location = New System.Drawing.Point(410, 74)
+        Me.CbxDate.Location = New System.Drawing.Point(375, 74)
         Me.CbxDate.Name = "CbxDate"
-        Me.CbxDate.Size = New System.Drawing.Size(75, 24)
+        Me.CbxDate.Size = New System.Drawing.Size(110, 24)
         Me.CbxDate.TabIndex = 179
         Me.CbxDate.Tag = ""
         '
@@ -364,20 +381,6 @@ Partial Class Reports
         Me.PrintPreviewDialog1.Icon = CType(resources.GetObject("PrintPreviewDialog1.Icon"), System.Drawing.Icon)
         Me.PrintPreviewDialog1.Name = "PrintPreviewDialog1"
         Me.PrintPreviewDialog1.Visible = False
-        '
-        'Button5
-        '
-        Me.Button5.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(39, Byte), Integer))
-        Me.Button5.FlatAppearance.BorderSize = 0
-        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button5.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Button5.ForeColor = System.Drawing.Color.FloralWhite
-        Me.Button5.Location = New System.Drawing.Point(329, 67)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(71, 30)
-        Me.Button5.TabIndex = 187
-        Me.Button5.Text = "All"
-        Me.Button5.UseVisualStyleBackColor = False
         '
         'Reports
         '

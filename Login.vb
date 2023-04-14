@@ -1,7 +1,9 @@
-﻿Public Class Login
+﻿Imports Org.BouncyCastle.Bcpg
+
+Public Class Login
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
         Dim frm As New Main
-
+        Dim usid As Integer = GetValueID(TxtUser.Text)
 
         If TxtUser.Text = "" Or TxtPass.Text = "" Then
             MsgBox("Empty field detecteted, please enter all the required details.")
@@ -14,12 +16,12 @@
             frm.Welcome.Text = "Welcome Back, Admin!"
             frm.ShowHome()
             Me.Hide()
-        ElseIf TxtPass.Text = GetValue("userlist", "PASS", TxtUser.Text) Then
+        ElseIf TxtPass.Text = GetValue("userlist", "PASS", usid) And TxtUser.Text = GetValue("userlist", "USERNAME", usid) Then
             frm.BtnUserList.Visible = False
             frm.BtnCirculation.Visible = False
-            frm.usid = TxtUser.Text
-            frm.Welcome.Text = "Welcome Back, " & GetValue("userlist", "NAME", TxtUser.Text) & "!"
-            frm.ShowUser(TxtUser.Text)
+            frm.usid = usid
+            frm.Welcome.Text = "Welcome Back, " & GetValue("userlist", "NAME", usid) & "!"
+            frm.ShowUser(usid)
             frm.Show()
             Me.Hide()
 
@@ -30,10 +32,7 @@
     End Sub
 
     Private Sub Ten_Digit(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TxtUser.KeyPress
-        If Asc(e.KeyChar) = 8 Then
-        ElseIf Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
-            e.Handled = True
-        End If
+
 
     End Sub
 
@@ -48,6 +47,20 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim forget As New ForgotPass()
         forget.ShowDialog()
+    End Sub
+
+    Private Sub TextBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtUser.KeyPress
+        ' Check if the input is a digit or letter
+        If Char.IsLetterOrDigit(e.KeyChar) Then
+            ' Check if the total length of the text is already 10 or more
+            If TxtUser.Text.Length >= 10 Then
+                ' Prevent the input from being added to the text box
+                e.Handled = True
+            End If
+        ElseIf Not Char.IsControl(e.KeyChar) Then
+            ' Prevent non-digit and non-letter characters from being typed
+            e.Handled = True
+        End If
     End Sub
 
 

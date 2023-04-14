@@ -1,4 +1,5 @@
 ﻿Imports System.Text.RegularExpressions
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Imports Microsoft.VisualBasic.ApplicationServices
 Imports Org.BouncyCastle.Asn1.X509
 
@@ -70,7 +71,7 @@ Public Class UserAccount
 
         OpenCon()
         cmd.Connection = con
-        cmd.CommandText = "UPDATE `lms`.`userlist` SET `PASS` = '" & TxtPass.Text & "'  WHERE (`ID` = '" & TxtAccID.Text & "');"
+        cmd.CommandText = "UPDATE `lms`.`userlist` SET `PASS` = '" & TxtPass.Text & "', `USERNAME` = '" & TxtUsername.Text & "'  WHERE (`ID` = '" & TxtAccID.Text & "');"
         cmd.ExecuteNonQuery()
         MsgBox("An account for " & "USER ID: " & TxtAccID.Text & " has been created.")
         con.Close()
@@ -150,8 +151,18 @@ Public Class UserAccount
         End If
     End Sub
 
-    Private Sub ColorBtn(sender As Object, e As EventArgs) Handles BtnAccCancel.LostFocus
-
+    Private Sub TextBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtUsername.KeyPress
+        ' Check if the input is a digit or letter
+        If Char.IsLetterOrDigit(e.KeyChar) Then
+            ' Check if the total length of the text is already 10 or more
+            If TxtUsername.Text.Length >= 10 Then
+                ' Prevent the input from being added to the text box
+                e.Handled = True
+            End If
+        ElseIf Not Char.IsControl(e.KeyChar) Then
+            ' Prevent non-digit and non-letter characters from being typed
+            e.Handled = True
+        End If
     End Sub
 
 End Class

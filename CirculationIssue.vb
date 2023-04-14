@@ -125,7 +125,7 @@ Public Class CirculationIssue
 
     Private Sub IsUserID_TextChanged(sender As Object, e As EventArgs) Handles IsUserID.TextChanged
 
-        If GetValue("userlist", "INACTIVE", IsUserID.Text) = 0 And IsUserID.Text.Length > 3 Then
+        If GetValue("userlist", "INACTIVE", IsUserID.Text) = 0 Then
             lblIsName.Text = GetValue("userlist", "NAME", IsUserID.Text)
         Else
             lblIsName.Text = ""
@@ -136,7 +136,7 @@ Public Class CirculationIssue
     Private Sub IsBookID_TextChanged(sender As Object, e As EventArgs) Handles IsBookID.TextChanged
 
 
-        If GetValue("booklist", "INACTIVE", IsBookID.Text) = 0 And IsBookID.Text.Length > 5 Then
+        If GetValue("booklist", "INACTIVE", IsBookID.Text) = 0 Then
             lblIsTitle.Text = GetValue("booklist", "TITLE", IsBookID.Text)
         Else
             lblIsTitle.Text = ""
@@ -218,11 +218,6 @@ Public Class CirculationIssue
             MsgBox("The USER doesn't exist")
             Return
         End If
-
-        'If IsUserID.Text.Length < 4 Then
-        '    MsgBox("The USER doesn't exist")
-        '    Return
-        'End If
 
         btnSrcIssue.Enabled = False
         IsUserID.Enabled = False

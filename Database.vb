@@ -15,7 +15,7 @@ Module Database
     Sub UpdateTableCatalog(name As String)
         Dim table As New DataTable()
         con.ConnectionString = SourcePath
-        Dim adapter As New MySqlDataAdapter("SELECT `ID`, `ISBN`, `TITLE`, `GENRE`, `AUTHOR`, `PUBLISHER`, `DATE-RCV`, `QTY` From lms." & name & " WHERE INACTIVE NOT in (1)", con)
+        Dim adapter As New MySqlDataAdapter("SELECT `ID`, `TITLE`, `GENRE`, `AUTHOR`, `PUBLISHER`, `DATE-PBL` From lms." & name & " WHERE INACTIVE NOT in (1)", con)
         adapter.Fill(table)
         FeatureCatalogList.DataGridView1.DataSource = table
         BookCatalog.DataGridView1.DataSource = table
@@ -23,21 +23,29 @@ Module Database
         For Each DataGridColumns In FeatureCatalogList.DataGridView1.Columns
             DataGridColumns.SortMode = DataGridViewColumnSortMode.NotSortable
         Next
-
         FeatureCatalogList.DataGridView1.CurrentCell = Nothing
         BookCatalog.DataGridView1.CurrentCell = Nothing
+        FeatureCatalogList.DataGridView1.Columns(0).AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+        FeatureCatalogList.DataGridView1.Columns(0).Width = 60
+
+        FeatureCatalogList.DataGridView1.Columns(5).AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+        FeatureCatalogList.DataGridView1.Columns(5).Width = 90
+
+        FeatureCatalogList.DataGridView1.Columns(2).AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+        FeatureCatalogList.DataGridView1.Columns(2).Width = 100
+
 
     End Sub
     Sub UpdateTableCatalogUser(name As String)
         Dim table As New DataTable()
         con.ConnectionString = SourcePath
-        Dim adapter As New MySqlDataAdapter("SELECT `ID`, `ISBN`, `TITLE`, `GENRE`, `AUTHOR`, `PUBLISHER`, `DATE-RCV`, `QTY` From lms." & name & " WHERE INACTIVE NOT in (1)", con)
+        Dim adapter As New MySqlDataAdapter("SELECT `ID`, `ISBN`, `TITLE`, `GENRE`, `AUTHOR`, `PUBLISHER`, `DATE-PBL`, `QTY` From lms." & name & " WHERE INACTIVE NOT in (1)", con)
         adapter.Fill(table)
         BookUser.DataGridView1.DataSource = table
 
-        For Each DataGridColumns In BookUser.DataGridView1.Columns
-            DataGridColumns.SortMode = DataGridViewColumnSortMode.NotSortable
-        Next
+        'For Each DataGridColumns In BookUser.DataGridView1.Columns
+        '    DataGridColumns.SortMode = DataGridViewColumnSortMode.NotSortable
+        'Next
 
         BookUser.DataGridView1.CurrentCell = Nothing
 
@@ -86,7 +94,7 @@ Module Database
     Sub ShowToReturn(id As String)
         Dim table As New DataTable()
         con.ConnectionString = SourcePath
-        Dim adapter As New MySqlDataAdapter("SELECT `BOOK ID`, `BOOK`, `DATE-ISSUED`, `DUE-DATE`From lms.issuedbooks WHERE `BORROWER ID` = " & id & " AND (`STATUS` = 'BORROWED' OR `STATUS` = 'OVERDUE') ", con)
+        Dim adapter As New MySqlDataAdapter("SELECT `BOOK ID`, `BOOK`, `DATE-ISSUED`, `DUE-DATE`, `FINE` From lms.issuedbooks WHERE `BORROWER ID` = " & id & " AND (`STATUS` = 'BORROWED' OR `STATUS` = 'OVERDUE') ", con)
         adapter.Fill(table)
         CirculationReturn.DataGridView1.DataSource = table
 
@@ -115,7 +123,7 @@ Module Database
     Sub FilterTable(dgv As DataGridView, cbx As ComboBox, txt As TextBox, name As String)
         Dim table As New DataTable()
         con.ConnectionString = SourcePath
-        Dim adapter As New MySqlDataAdapter("SELECT * From lms." & name & " WHERE INACTIVE NOT in (1)", con)
+        Dim adapter As New MySqlDataAdapter("SELECT  `ID`, `TITLE`, `GENRE`, `AUTHOR`, `PUBLISHER`, `DATE-PBL` From lms." & name & " WHERE INACTIVE NOT in (1)", con)
         adapter.Fill(table)
 
         Dim DV As New DataView(table)
@@ -129,7 +137,7 @@ Module Database
 
     Sub SpecificFilterTable(database As String, dgv As DataGridView, cbx As ComboBox, txt As TextBox)
         Dim table As New DataTable()
-        Dim var = "SELECT * FROM lms." & database & " WHERE " & cbx.SelectedItem & " = " & "'" & txt.Text & "'" & "AND INACTIVE not in (1)"
+        Dim var = "SELECT `ID`, `TITLE`, `GENRE`, `AUTHOR`, `PUBLISHER`, `DATE-PBL` FROM lms." & database & " WHERE " & cbx.SelectedItem & " = " & "'" & txt.Text & "'" & "AND INACTIVE not in (1)"
         con.ConnectionString = SourcePath
         Dim adapter As New MySqlDataAdapter(var, con)
         adapter.Fill(table)
@@ -219,6 +227,16 @@ Module Database
         con.Close()
         Return result
     End Function
+
+    Public Function GetValueID(username As String)
+        OpenCon()
+        cmd.Connection = con
+        cmd.CommandText = "SELECT ID FROM lms.userlist WHERE USERNAME=" & "'" & username & "'" & " LIMIT 1"
+        Dim result = cmd.ExecuteScalar()
+        con.Close()
+        Return result
+    End Function
+
     Public Function GetValueActive(table As String, col As String, id As String)
         OpenCon()
         cmd.Connection = con
@@ -238,7 +256,7 @@ Module Database
     Public Function GetTransacID(bookid As String, usid As String)
         OpenCon()
         cmd.Connection = con
-        cmd.CommandText = "SELECT * FROM lms.issuedbooks WHERE `BOOK ID`=" & "'" & bookid & "'" & "AND `BORROWER ID`=" & "'" & usid & "' AND `STATUS` != 'RETURNED' " & " LIMIT 1"
+        cmd.CommandText = "SELECT * FROM lms.issuedbooks WHERE `BOOK ID`=" & "'" & bookid & "'" & "AND `BORROWER ID`=" & "'" & usid & "' AND `STATUS` != 'RETURNED' "
         Dim result = cmd.ExecuteScalar()
         con.Close()
         Return result

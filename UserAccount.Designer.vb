@@ -39,6 +39,8 @@ Partial Class UserAccount
         Me.Label7 = New System.Windows.Forms.Label()
         Me.cbxPass = New System.Windows.Forms.CheckBox()
         Me.lblLower = New System.Windows.Forms.Label()
+        Me.TxtUsername = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'BtnAccCancel
@@ -62,7 +64,7 @@ Partial Class UserAccount
         '
         Me.TxtPass.Enabled = False
         Me.TxtPass.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.TxtPass.Location = New System.Drawing.Point(12, 133)
+        Me.TxtPass.Location = New System.Drawing.Point(12, 182)
         Me.TxtPass.Name = "TxtPass"
         Me.TxtPass.Size = New System.Drawing.Size(260, 26)
         Me.TxtPass.TabIndex = 136
@@ -72,7 +74,7 @@ Partial Class UserAccount
         '
         Me.Label19.AutoSize = True
         Me.Label19.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label19.Location = New System.Drawing.Point(12, 110)
+        Me.Label19.Location = New System.Drawing.Point(12, 159)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(68, 20)
         Me.Label19.TabIndex = 135
@@ -147,7 +149,7 @@ Partial Class UserAccount
         '
         Me.TxtConPass.Enabled = False
         Me.TxtConPass.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.TxtConPass.Location = New System.Drawing.Point(12, 185)
+        Me.TxtConPass.Location = New System.Drawing.Point(12, 234)
         Me.TxtConPass.Name = "TxtConPass"
         Me.TxtConPass.Size = New System.Drawing.Size(260, 26)
         Me.TxtConPass.TabIndex = 140
@@ -157,7 +159,7 @@ Partial Class UserAccount
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label2.Location = New System.Drawing.Point(12, 162)
+        Me.Label2.Location = New System.Drawing.Point(12, 211)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(117, 20)
         Me.Label2.TabIndex = 139
@@ -168,7 +170,7 @@ Partial Class UserAccount
         Me.lblSpecial.AutoSize = True
         Me.lblSpecial.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.lblSpecial.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblSpecial.Location = New System.Drawing.Point(12, 299)
+        Me.lblSpecial.Location = New System.Drawing.Point(12, 349)
         Me.lblSpecial.Name = "lblSpecial"
         Me.lblSpecial.Size = New System.Drawing.Size(216, 20)
         Me.lblSpecial.TabIndex = 141
@@ -179,7 +181,7 @@ Partial Class UserAccount
         Me.lblUpper.AutoSize = True
         Me.lblUpper.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.lblUpper.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblUpper.Location = New System.Drawing.Point(12, 324)
+        Me.lblUpper.Location = New System.Drawing.Point(12, 374)
         Me.lblUpper.Name = "lblUpper"
         Me.lblUpper.Size = New System.Drawing.Size(230, 20)
         Me.lblUpper.TabIndex = 142
@@ -190,7 +192,7 @@ Partial Class UserAccount
         Me.lblLength.AutoSize = True
         Me.lblLength.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.lblLength.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblLength.Location = New System.Drawing.Point(12, 374)
+        Me.lblLength.Location = New System.Drawing.Point(12, 424)
         Me.lblLength.Name = "lblLength"
         Me.lblLength.Size = New System.Drawing.Size(240, 20)
         Me.lblLength.TabIndex = 143
@@ -201,7 +203,7 @@ Partial Class UserAccount
         Me.lblNum.AutoSize = True
         Me.lblNum.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.lblNum.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblNum.Location = New System.Drawing.Point(12, 399)
+        Me.lblNum.Location = New System.Drawing.Point(12, 449)
         Me.lblNum.Name = "lblNum"
         Me.lblNum.Size = New System.Drawing.Size(216, 20)
         Me.lblNum.TabIndex = 144
@@ -211,7 +213,7 @@ Partial Class UserAccount
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label7.Location = New System.Drawing.Point(12, 274)
+        Me.Label7.Location = New System.Drawing.Point(12, 324)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(159, 20)
         Me.Label7.TabIndex = 145
@@ -221,7 +223,7 @@ Partial Class UserAccount
         '
         Me.cbxPass.AutoSize = True
         Me.cbxPass.Enabled = False
-        Me.cbxPass.Location = New System.Drawing.Point(12, 217)
+        Me.cbxPass.Location = New System.Drawing.Point(12, 266)
         Me.cbxPass.Name = "cbxPass"
         Me.cbxPass.Size = New System.Drawing.Size(108, 19)
         Me.cbxPass.TabIndex = 146
@@ -233,11 +235,29 @@ Partial Class UserAccount
         Me.lblLower.AutoSize = True
         Me.lblLower.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.lblLower.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblLower.Location = New System.Drawing.Point(12, 349)
+        Me.lblLower.Location = New System.Drawing.Point(12, 399)
         Me.lblLower.Name = "lblLower"
         Me.lblLower.Size = New System.Drawing.Size(220, 20)
         Me.lblLower.TabIndex = 147
         Me.lblLower.Text = "✖️ Must contain a lower case letter."
+        '
+        'TxtUsername
+        '
+        Me.TxtUsername.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.TxtUsername.Location = New System.Drawing.Point(12, 130)
+        Me.TxtUsername.Name = "TxtUsername"
+        Me.TxtUsername.Size = New System.Drawing.Size(260, 26)
+        Me.TxtUsername.TabIndex = 149
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label3.Location = New System.Drawing.Point(12, 107)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(70, 20)
+        Me.Label3.TabIndex = 148
+        Me.Label3.Text = "Username"
         '
         'UserAccount
         '
@@ -245,6 +265,8 @@ Partial Class UserAccount
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(196, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(284, 561)
+        Me.Controls.Add(Me.TxtUsername)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.lblLower)
         Me.Controls.Add(Me.cbxPass)
         Me.Controls.Add(Me.Label7)
@@ -286,4 +308,6 @@ Partial Class UserAccount
     Friend WithEvents Label7 As Label
     Friend WithEvents cbxPass As CheckBox
     Friend WithEvents lblLower As Label
+    Friend WithEvents TxtUsername As TextBox
+    Friend WithEvents Label3 As Label
 End Class

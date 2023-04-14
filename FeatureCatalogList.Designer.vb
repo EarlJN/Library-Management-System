@@ -22,6 +22,7 @@ Partial Class FeatureCatalogList
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FeatureCatalogList))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.LblQty = New System.Windows.Forms.Label()
@@ -50,10 +51,12 @@ Partial Class FeatureCatalogList
         Me.ChkSpecific = New System.Windows.Forms.CheckBox()
         Me.PnlTool = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.BtnEditBook = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.BtnAddBook = New System.Windows.Forms.Button()
+        Me.BtnEditBook = New System.Windows.Forms.Button()
         Me.PnlBookList = New System.Windows.Forms.Panel()
+        Me.btnPrint = New System.Windows.Forms.Button()
+        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
+        Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BLPic, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PnlTool.SuspendLayout()
@@ -71,7 +74,7 @@ Partial Class FeatureCatalogList
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(761, 37)
         Me.Label1.TabIndex = 56
-        Me.Label1.Text = "BOOK DETAILS"
+        Me.Label1.Text = "BOOK LIST"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'DataGridView1
@@ -82,6 +85,7 @@ Partial Class FeatureCatalogList
         Me.DataGridView1.AllowUserToResizeRows = False
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.DataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.EnableHeadersVisualStyles = False
         Me.DataGridView1.Location = New System.Drawing.Point(21, 258)
@@ -102,7 +106,7 @@ Partial Class FeatureCatalogList
         '
         Me.LblQty.AutoSize = True
         Me.LblQty.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.LblQty.Location = New System.Drawing.Point(479, 200)
+        Me.LblQty.Location = New System.Drawing.Point(404, 59)
         Me.LblQty.Name = "LblQty"
         Me.LblQty.Size = New System.Drawing.Size(29, 20)
         Me.LblQty.TabIndex = 74
@@ -172,7 +176,7 @@ Partial Class FeatureCatalogList
         '
         Me.BLPic.Location = New System.Drawing.Point(21, 60)
         Me.BLPic.Name = "BLPic"
-        Me.BLPic.Size = New System.Drawing.Size(152, 192)
+        Me.BLPic.Size = New System.Drawing.Size(152, 181)
         Me.BLPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.BLPic.TabIndex = 67
         Me.BLPic.TabStop = False
@@ -186,7 +190,7 @@ Partial Class FeatureCatalogList
         Me.BtnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnFilter.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.BtnFilter.ForeColor = System.Drawing.Color.FloralWhite
-        Me.BtnFilter.Location = New System.Drawing.Point(635, 193)
+        Me.BtnFilter.Location = New System.Drawing.Point(627, 143)
         Me.BtnFilter.Name = "BtnFilter"
         Me.BtnFilter.Size = New System.Drawing.Size(51, 22)
         Me.BtnFilter.TabIndex = 114
@@ -265,7 +269,7 @@ Partial Class FeatureCatalogList
         '
         Me.TxtQty.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TxtQty.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.TxtQty.Location = New System.Drawing.Point(514, 202)
+        Me.TxtQty.Location = New System.Drawing.Point(439, 58)
         Me.TxtQty.Name = "TxtQty"
         Me.TxtQty.ReadOnly = True
         Me.TxtQty.Size = New System.Drawing.Size(56, 21)
@@ -286,12 +290,12 @@ Partial Class FeatureCatalogList
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label2.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label2.Location = New System.Drawing.Point(179, 222)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(67, 20)
+        Me.Label2.Size = New System.Drawing.Size(68, 15)
         Me.Label2.TabIndex = 125
-        Me.Label2.Text = "Date-RCV"
+        Me.Label2.Text = "Date Published"
         '
         'CbxFilter
         '
@@ -299,7 +303,7 @@ Partial Class FeatureCatalogList
         Me.CbxFilter.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.CbxFilter.FormattingEnabled = True
         Me.CbxFilter.Items.AddRange(New Object() {"Title", "Author", "Publisher"})
-        Me.CbxFilter.Location = New System.Drawing.Point(595, 101)
+        Me.CbxFilter.Location = New System.Drawing.Point(587, 51)
         Me.CbxFilter.Name = "CbxFilter"
         Me.CbxFilter.Size = New System.Drawing.Size(148, 25)
         Me.CbxFilter.TabIndex = 127
@@ -309,7 +313,7 @@ Partial Class FeatureCatalogList
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label3.Location = New System.Drawing.Point(527, 106)
+        Me.Label3.Location = New System.Drawing.Point(519, 56)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(58, 20)
         Me.Label3.TabIndex = 128
@@ -319,7 +323,7 @@ Partial Class FeatureCatalogList
         '
         Me.TxtFilter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TxtFilter.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.TxtFilter.Location = New System.Drawing.Point(595, 132)
+        Me.TxtFilter.Location = New System.Drawing.Point(587, 82)
         Me.TxtFilter.Name = "TxtFilter"
         Me.TxtFilter.Size = New System.Drawing.Size(148, 26)
         Me.TxtFilter.TabIndex = 129
@@ -328,7 +332,7 @@ Partial Class FeatureCatalogList
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label4.Location = New System.Drawing.Point(527, 133)
+        Me.Label4.Location = New System.Drawing.Point(519, 83)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(62, 20)
         Me.Label4.TabIndex = 130
@@ -343,7 +347,7 @@ Partial Class FeatureCatalogList
         Me.BtnResetFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnResetFilter.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.BtnResetFilter.ForeColor = System.Drawing.Color.FloralWhite
-        Me.BtnResetFilter.Location = New System.Drawing.Point(692, 193)
+        Me.BtnResetFilter.Location = New System.Drawing.Point(684, 143)
         Me.BtnResetFilter.Name = "BtnResetFilter"
         Me.BtnResetFilter.Size = New System.Drawing.Size(51, 22)
         Me.BtnResetFilter.TabIndex = 131
@@ -354,7 +358,7 @@ Partial Class FeatureCatalogList
         '
         Me.ChkSpecific.AutoSize = True
         Me.ChkSpecific.Font = New System.Drawing.Font("Arial Narrow", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.ChkSpecific.Location = New System.Drawing.Point(595, 164)
+        Me.ChkSpecific.Location = New System.Drawing.Point(587, 114)
         Me.ChkSpecific.Name = "ChkSpecific"
         Me.ChkSpecific.Size = New System.Drawing.Size(82, 20)
         Me.ChkSpecific.TabIndex = 137
@@ -377,53 +381,14 @@ Partial Class FeatureCatalogList
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33411!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33411!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33178!))
-        Me.TableLayoutPanel1.Controls.Add(Me.BtnEditBook, 2, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.Button1, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.BtnAddBook, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.BtnAddBook, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.BtnEditBook, 1, 0)
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(462, 45)
         Me.TableLayoutPanel1.TabIndex = 138
-        '
-        'BtnEditBook
-        '
-        Me.BtnEditBook.BackColor = System.Drawing.Color.Transparent
-        Me.BtnEditBook.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.BtnEditBook.FlatAppearance.BorderSize = 0
-        Me.BtnEditBook.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(70, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(114, Byte), Integer))
-        Me.BtnEditBook.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(104, Byte), Integer))
-        Me.BtnEditBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnEditBook.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.BtnEditBook.ForeColor = System.Drawing.Color.Black
-        Me.BtnEditBook.Location = New System.Drawing.Point(308, 0)
-        Me.BtnEditBook.Margin = New System.Windows.Forms.Padding(0)
-        Me.BtnEditBook.Name = "BtnEditBook"
-        Me.BtnEditBook.Size = New System.Drawing.Size(154, 45)
-        Me.BtnEditBook.TabIndex = 4
-        Me.BtnEditBook.Tag = "3"
-        Me.BtnEditBook.Text = "Edit Book"
-        Me.BtnEditBook.UseVisualStyleBackColor = False
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.Color.Transparent
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(70, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(114, Byte), Integer))
-        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(104, Byte), Integer))
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Button1.ForeColor = System.Drawing.Color.Black
-        Me.Button1.Location = New System.Drawing.Point(0, 0)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(0)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(154, 45)
-        Me.Button1.TabIndex = 139
-        Me.Button1.Tag = "3"
-        Me.Button1.Text = "Show Catalog"
-        Me.Button1.UseVisualStyleBackColor = False
         '
         'BtnAddBook
         '
@@ -435,7 +400,7 @@ Partial Class FeatureCatalogList
         Me.BtnAddBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnAddBook.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.BtnAddBook.ForeColor = System.Drawing.Color.Black
-        Me.BtnAddBook.Location = New System.Drawing.Point(154, 0)
+        Me.BtnAddBook.Location = New System.Drawing.Point(0, 0)
         Me.BtnAddBook.Margin = New System.Windows.Forms.Padding(0)
         Me.BtnAddBook.Name = "BtnAddBook"
         Me.BtnAddBook.Size = New System.Drawing.Size(154, 45)
@@ -444,9 +409,29 @@ Partial Class FeatureCatalogList
         Me.BtnAddBook.Text = "Add Book"
         Me.BtnAddBook.UseVisualStyleBackColor = False
         '
+        'BtnEditBook
+        '
+        Me.BtnEditBook.BackColor = System.Drawing.Color.Transparent
+        Me.BtnEditBook.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BtnEditBook.FlatAppearance.BorderSize = 0
+        Me.BtnEditBook.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(70, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(114, Byte), Integer))
+        Me.BtnEditBook.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(104, Byte), Integer))
+        Me.BtnEditBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnEditBook.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.BtnEditBook.ForeColor = System.Drawing.Color.Black
+        Me.BtnEditBook.Location = New System.Drawing.Point(154, 0)
+        Me.BtnEditBook.Margin = New System.Windows.Forms.Padding(0)
+        Me.BtnEditBook.Name = "BtnEditBook"
+        Me.BtnEditBook.Size = New System.Drawing.Size(154, 45)
+        Me.BtnEditBook.TabIndex = 4
+        Me.BtnEditBook.Tag = "3"
+        Me.BtnEditBook.Text = "Edit Book"
+        Me.BtnEditBook.UseVisualStyleBackColor = False
+        '
         'PnlBookList
         '
         Me.PnlBookList.BackColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(196, Byte), Integer))
+        Me.PnlBookList.Controls.Add(Me.btnPrint)
         Me.PnlBookList.Controls.Add(Me.ChkSpecific)
         Me.PnlBookList.Controls.Add(Me.BtnResetFilter)
         Me.PnlBookList.Controls.Add(Me.DataGridView1)
@@ -477,6 +462,33 @@ Partial Class FeatureCatalogList
         Me.PnlBookList.Name = "PnlBookList"
         Me.PnlBookList.Size = New System.Drawing.Size(761, 491)
         Me.PnlBookList.TabIndex = 139
+        '
+        'btnPrint
+        '
+        Me.btnPrint.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(39, Byte), Integer))
+        Me.btnPrint.FlatAppearance.BorderSize = 0
+        Me.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPrint.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.btnPrint.ForeColor = System.Drawing.Color.FloralWhite
+        Me.btnPrint.Location = New System.Drawing.Point(672, 222)
+        Me.btnPrint.Name = "btnPrint"
+        Me.btnPrint.Size = New System.Drawing.Size(71, 24)
+        Me.btnPrint.TabIndex = 177
+        Me.btnPrint.Text = "Print"
+        Me.btnPrint.UseVisualStyleBackColor = False
+        '
+        'PrintDocument1
+        '
+        '
+        'PrintPreviewDialog1
+        '
+        Me.PrintPreviewDialog1.AutoScrollMargin = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog1.AutoScrollMinSize = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog1.ClientSize = New System.Drawing.Size(400, 300)
+        Me.PrintPreviewDialog1.Enabled = True
+        Me.PrintPreviewDialog1.Icon = CType(resources.GetObject("PrintPreviewDialog1.Icon"), System.Drawing.Icon)
+        Me.PrintPreviewDialog1.Name = "PrintPreviewDialog1"
+        Me.PrintPreviewDialog1.Visible = False
         '
         'FeatureCatalogList
         '
@@ -528,7 +540,9 @@ Partial Class FeatureCatalogList
     Friend WithEvents PnlTool As Panel
     Friend WithEvents PnlBookList As Panel
     Friend WithEvents BtnEditBook As Button
-    Friend WithEvents Button1 As Button
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents BtnAddBook As Button
+    Friend WithEvents btnPrint As Button
+    Friend WithEvents PrintDocument1 As Printing.PrintDocument
+    Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
 End Class
