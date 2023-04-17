@@ -47,14 +47,16 @@ Public Class Main
         'UpdateTableCatalog("booklist")
     End Sub
 
-    Private Sub BtnUsers_Click(sender As Object, e As EventArgs)
-    End Sub
-
     Private Sub BtnUserList_Click(sender As Object, e As EventArgs) Handles BtnUserList.Click
 
         ActiveBtn(CType(sender, Button))
-        Change_Frame(FeatureUserList, "PanelMain")
-        UpdateTableUser("userlist")
+        If usid = "admin" Then
+            ActiveBtn(CType(sender, Button))
+            Change_Frame(FeatureUserList, "PanelMain")
+            UpdateTableUser("userlist")
+        Else
+            ShowAccUser(usid)
+        End If
 
     End Sub
 
@@ -76,7 +78,7 @@ Public Class Main
         If usid = "admin" Then
             ShowHome()
         Else
-            ShowUser(usid)
+            ShowHomeUser()
         End If
 
     End Sub
@@ -88,18 +90,34 @@ Public Class Main
         Login.TxtUser.Clear()
     End Sub
 
-    Sub ShowUser(usid As String)
-        ActiveBtn(BtnDashboard)
+    'Sub ShowUser(usid As String)
+    '    ActiveBtn(BtnDashboard)
+
+    '    PanelMain.Controls.Clear()
+    '    Change_Frame(HomeUser, "PanelMain")
+    '    HomeUser.TxtId.Text = usid
+    '    HomeUser.TxtName.Text = GetValue("userlist", "NAME", usid)
+    '    HomeUser.TxtGender.Text = GetValue("userlist", "GENDER", usid)
+    '    HomeUser.TxtPhone.Text = GetValue("userlist", "PHONENO", usid)
+    '    HomeUser.TxtEmail.Text = GetValue("userlist", "EMAIL", usid)
+    '    HomeUser.TxtBod.Text = GetValue("userlist", "BIRTHDATE", usid)
+    '    HomeUser.PicUser.ImageLocation = BinPath & GetValue("userlist", "PATH", usid)
+    '    ShowIssuedBooksUser(usid)
+
+    'End Sub
+
+    Sub ShowAccUser(usid As String)
+        ActiveBtn(BtnUserList)
 
         PanelMain.Controls.Clear()
-        Change_Frame(HomeUser, "PanelMain")
-        HomeUser.TxtId.Text = usid
-        HomeUser.TxtName.Text = GetValue("userlist", "NAME", usid)
-        HomeUser.TxtGender.Text = GetValue("userlist", "GENDER", usid)
-        HomeUser.TxtPhone.Text = GetValue("userlist", "PHONENO", usid)
-        HomeUser.TxtEmail.Text = GetValue("userlist", "EMAIL", usid)
-        HomeUser.TxtBod.Text = GetValue("userlist", "BIRTHDATE", usid)
-        HomeUser.PicUser.ImageLocation = BinPath & GetValue("userlist", "PATH", usid)
+        Change_Frame(AccUser, "PanelMain")
+        AccUser.TxtId.Text = usid
+        AccUser.TxtName.Text = GetValue("userlist", "NAME", usid)
+        AccUser.TxtGender.Text = GetValue("userlist", "GENDER", usid)
+        AccUser.TxtPhone.Text = GetValue("userlist", "PHONENO", usid)
+        AccUser.TxtEmail.Text = GetValue("userlist", "EMAIL", usid)
+        AccUser.TxtBod.Text = GetValue("userlist", "BIRTHDATE", usid)
+        AccUser.PicUser.ImageLocation = BinPath & GetValue("userlist", "PATH", usid)
         ShowIssuedBooksUser(usid)
 
     End Sub
@@ -117,6 +135,22 @@ Public Class Main
         HomeAdmin.PictureBox5.ImageLocation = BinPath & GetLastRow("booklist", 4)
         Change_Frame(HomeAdmin, "PanelMain")
     End Sub
+
+    Sub ShowHomeUser()
+        ActiveBtn(BtnDashboard)
+        Dim idArray As String() = GetTop5Ids()
+        PanelMain.Controls.Clear()
+        HomeUser.BooksReturn.Text = GetTotalBooksToReturn(usid)
+        HomeUser.TotOverdue.Text = GetOverdueUser(usid)
+        HomeUser.TotBorrowed.Text = GetTotalBorrowed(usid)
+        HomeUser.PictureBox1.ImageLocation = BinPath & GetValue("booklist", "path", idArray(0))
+        HomeUser.PictureBox2.ImageLocation = BinPath & GetValue("booklist", "path", idArray(1))
+        HomeUser.PictureBox3.ImageLocation = BinPath & GetValue("booklist", "path", idArray(2))
+        HomeUser.PictureBox4.ImageLocation = BinPath & GetValue("booklist", "path", idArray(3))
+        HomeUser.PictureBox5.ImageLocation = BinPath & GetValue("booklist", "path", idArray(4))
+        Change_Frame(HomeUser, "PanelMain")
+    End Sub
+
 
     Private Sub Form1_Closing(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles MyBase.Closing
         Login.Close()

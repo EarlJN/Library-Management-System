@@ -17,11 +17,13 @@ Public Class Login
             frm.ShowHome()
             Me.Hide()
         ElseIf TxtPass.Text = GetValue("userlist", "PASS", usid) And TxtUser.Text = GetValue("userlist", "USERNAME", usid) Then
-            frm.BtnUserList.Visible = False
             frm.BtnCirculation.Visible = False
+            frm.BtnReports.Visible = False
             frm.usid = usid
+            MsgBox(usid)
             frm.Welcome.Text = "Welcome Back, " & GetValue("userlist", "NAME", usid) & "!"
-            frm.ShowUser(usid)
+            'frm.ShowUser(usid)
+            frm.ShowHomeUser()
             frm.Show()
             Me.Hide()
 

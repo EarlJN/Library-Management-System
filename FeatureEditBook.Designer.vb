@@ -189,7 +189,7 @@ Partial Class FeatureEditBook
         Me.Label16.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label16.Location = New System.Drawing.Point(9, 395)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(98, 20)
+        Me.Label16.Size = New System.Drawing.Size(100, 20)
         Me.Label16.TabIndex = 110
         Me.Label16.Text = "Date Published"
         '
@@ -223,6 +223,7 @@ Partial Class FeatureEditBook
         '
         'CbxDelGenre
         '
+        Me.CbxDelGenre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CbxDelGenre.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.CbxDelGenre.FormattingEnabled = True
         Me.CbxDelGenre.Items.AddRange(New Object() {"Fiction", "Non-Fiction", "Drama", "Poetry", "Folktale"})

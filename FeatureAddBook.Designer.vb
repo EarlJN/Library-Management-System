@@ -131,7 +131,7 @@ Partial Class FeatureAddBook
         Me.Label6.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label6.Location = New System.Drawing.Point(11, 371)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(98, 20)
+        Me.Label6.Size = New System.Drawing.Size(100, 20)
         Me.Label6.TabIndex = 85
         Me.Label6.Text = "Date Published"
         '
@@ -166,6 +166,7 @@ Partial Class FeatureAddBook
         '
         'CbxGenre
         '
+        Me.CbxGenre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CbxGenre.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.CbxGenre.FormattingEnabled = True
         Me.CbxGenre.Items.AddRange(New Object() {"Fiction", "Non-Fiction", "Drama", "Poetry", "Folktale"})

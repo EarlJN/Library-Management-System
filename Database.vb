@@ -1,8 +1,4 @@
-﻿Imports Microsoft.VisualBasic.ApplicationServices
-Imports System.Net
-Imports MySql.Data.MySqlClient
-Imports Mysqlx
-
+﻿Imports MySql.Data.MySqlClient
 
 Module Database
     Public con As New MySqlConnection
@@ -12,6 +8,37 @@ Module Database
         con.Open()
     End Sub
 
+    Public Function GetTop5Ids() As String()
+        ' Open database connection
+        OpenCon()
+
+        ' MySQL query to retrieve top 5 most occurring ID values from your table
+        Dim query As String = "SELECT `BOOK ID`, COUNT(*) AS count FROM issuedbooks GROUP BY `BOOK ID` ORDER BY count DESC LIMIT 5"
+
+        ' Set the CommandText property of cmd to query
+        cmd.CommandText = query
+        cmd.Connection = con
+
+        ' Execute the query and create a data reader object
+        Dim reader As MySqlDataReader = cmd.ExecuteReader()
+
+        ' Create an array to store ID values
+        Dim idArray(4) As String ' Assumes we want to retrieve the top 5 values
+
+        ' Loop through the data reader and store ID values in array
+        Dim i As Integer = 0
+        While reader.Read() AndAlso i < 5 ' Stop after retrieving top 5 values
+            idArray(i) = reader.GetString("BOOK ID")
+            i += 1
+        End While
+
+        ' Close data reader and database connection
+        reader.Close()
+        con.Close()
+
+        ' Return the ID values in array
+        Return idArray
+    End Function
     Sub UpdateTableCatalog(name As String)
         Dim table As New DataTable()
         con.ConnectionString = SourcePath
@@ -83,7 +110,7 @@ Module Database
         con.ConnectionString = SourcePath
         Dim adapter As New MySqlDataAdapter("SELECT `BOOK ID`, `BOOK`, `DATE-ISSUED`, `DUE-DATE`, `STATUS` From lms.issuedbooks WHERE `BORROWER ID` = " & id & " AND `STATUS` != 'LOST'", con)
         adapter.Fill(table)
-        HomeUser.DataGridView2.DataSource = table
+        AccUser.DataGridView2.DataSource = table
 
         For Each DataGridColumns In FeatureUserList.DataGridView2.Columns
             DataGridColumns.SortMode = DataGridViewColumnSortMode.NotSortable
@@ -304,6 +331,16 @@ Module Database
         Return result
     End Function
 
+    Public Function GetOverdueUser(usid)
+        OpenCon()
+        cmd.Connection = con
+        cmd.CommandText = "SELECT COUNT(*) FROM issuedbooks WHERE `BORROWER ID` = " & usid & " AND STATUS = 'OVERDUE'"
+        Dim result = cmd.ExecuteScalar
+        con.Close()
+
+        Return result
+    End Function
+
     Public Function GetTotalBooks()
         OpenCon()
         cmd.Connection = con
@@ -313,6 +350,17 @@ Module Database
 
         Return result
     End Function
+
+    Public Function GetTotalBooksToReturn(usid)
+        OpenCon()
+        cmd.Connection = con
+        cmd.CommandText = "SELECT COUNT(*) FROM issuedbooks WHERE `BORROWER ID` = " & usid & " AND `STATUS` = 'BORROWED' "
+        Dim result = cmd.ExecuteScalar
+        con.Close()
+
+        Return result
+    End Function
+
     Public Function GetTotalIssuedBooks()
         OpenCon()
         cmd.Connection = con
@@ -331,6 +379,17 @@ Module Database
 
         Return result
     End Function
+
+    Public Function GetTotalBorrowed(usid)
+        OpenCon()
+        cmd.Connection = con
+        cmd.CommandText = "SELECT COUNT(*) FROM issuedbooks WHERE (`STATUS` = 'BORROWED' OR `STATUS` = 'RETURNED') AND `BORROWER ID` = " & usid
+        Dim result = cmd.ExecuteScalar
+        con.Close()
+
+        Return result
+    End Function
+
     Public Function GetTotalIssuedBooksLost()
         OpenCon()
         cmd.Connection = con

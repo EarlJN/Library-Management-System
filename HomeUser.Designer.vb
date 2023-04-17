@@ -22,28 +22,118 @@ Partial Class HomeUser
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.PnlHome = New System.Windows.Forms.Panel()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.PnlUserShow = New System.Windows.Forms.Panel()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
-        Me.TxtPhone = New System.Windows.Forms.TextBox()
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.TxtEmail = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.TxtGender = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.TxtBod = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.TxtName = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.TxtId = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.PicUser = New System.Windows.Forms.PictureBox()
+        Me.TotOverdue = New System.Windows.Forms.Label()
+        Me.BooksReturn = New System.Windows.Forms.Label()
+        Me.TotBorrowed = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PnlTool = New System.Windows.Forms.Panel()
-        Me.PnlUserShow.SuspendLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PicUser, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PnlHome.SuspendLayout()
+        Me.TableLayoutPanel1.SuspendLayout()
+        Me.Panel1.SuspendLayout()
+        Me.TableLayoutPanel2.SuspendLayout()
+        Me.Panel2.SuspendLayout()
+        Me.TableLayoutPanel3.SuspendLayout()
+        Me.Panel3.SuspendLayout()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'PnlHome
+        '
+        Me.PnlHome.BackColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(196, Byte), Integer))
+        Me.PnlHome.Controls.Add(Me.Label11)
+        Me.PnlHome.Location = New System.Drawing.Point(0, 0)
+        Me.PnlHome.Name = "PnlHome"
+        Me.PnlHome.Size = New System.Drawing.Size(200, 100)
+        Me.PnlHome.TabIndex = 0
+        '
+        'Label11
+        '
+        Me.Label11.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(39, Byte), Integer))
+        Me.Label11.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label11.ForeColor = System.Drawing.Color.FloralWhite
+        Me.Label11.Location = New System.Drawing.Point(0, 0)
+        Me.Label11.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(761, 37)
+        Me.Label11.TabIndex = 57
+        Me.Label11.Text = "DASHBOARD"
+        Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.ColumnCount = 7
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.263157!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.31579!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.263157!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.31579!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.263157!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.31579!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.263157!))
+        Me.TableLayoutPanel1.Controls.Add(Me.Label5, 3, 0)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 1
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(200, 100)
+        Me.TableLayoutPanel1.TabIndex = 0
+        '
+        'Label5
+        '
+        Me.Label5.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(39, Byte), Integer))
+        Me.Label5.Font = New System.Drawing.Font("Arial", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label5.ForeColor = System.Drawing.SystemColors.ControlLight
+        Me.Label5.Location = New System.Drawing.Point(75, 0)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(46, 39)
+        Me.Label5.TabIndex = 5
+        Me.Label5.Text = "BOOKS"
+        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label4
+        '
+        Me.Label4.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(39, Byte), Integer))
+        Me.Label4.Font = New System.Drawing.Font("Arial", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label4.ForeColor = System.Drawing.SystemColors.ControlLight
+        Me.Label4.Location = New System.Drawing.Point(13, 0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(186, 39)
+        Me.Label4.TabIndex = 4
+        Me.Label4.Text = "USERS"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(196, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(200, 100)
+        Me.Panel1.TabIndex = 0
         '
         'Label1
         '
@@ -54,199 +144,251 @@ Partial Class HomeUser
         Me.Label1.Margin = New System.Windows.Forms.Padding(0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(761, 37)
-        Me.Label1.TabIndex = 119
-        Me.Label1.Text = "USER DETAILS"
+        Me.Label1.TabIndex = 57
+        Me.Label1.Text = "DASHBOARD"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'PnlUserShow
+        'TableLayoutPanel2
         '
-        Me.PnlUserShow.BackColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(196, Byte), Integer))
-        Me.PnlUserShow.Controls.Add(Me.DataGridView2)
-        Me.PnlUserShow.Controls.Add(Me.TxtPhone)
-        Me.PnlUserShow.Controls.Add(Me.Label7)
-        Me.PnlUserShow.Controls.Add(Me.Label8)
-        Me.PnlUserShow.Controls.Add(Me.TxtEmail)
-        Me.PnlUserShow.Controls.Add(Me.Label1)
-        Me.PnlUserShow.Controls.Add(Me.Label6)
-        Me.PnlUserShow.Controls.Add(Me.TxtGender)
-        Me.PnlUserShow.Controls.Add(Me.Label5)
-        Me.PnlUserShow.Controls.Add(Me.TxtBod)
-        Me.PnlUserShow.Controls.Add(Me.Label4)
-        Me.PnlUserShow.Controls.Add(Me.TxtName)
-        Me.PnlUserShow.Controls.Add(Me.Label2)
-        Me.PnlUserShow.Controls.Add(Me.TxtId)
-        Me.PnlUserShow.Controls.Add(Me.Label3)
-        Me.PnlUserShow.Controls.Add(Me.PicUser)
-        Me.PnlUserShow.Location = New System.Drawing.Point(12, 59)
-        Me.PnlUserShow.Name = "PnlUserShow"
-        Me.PnlUserShow.Size = New System.Drawing.Size(761, 491)
-        Me.PnlUserShow.TabIndex = 120
+        Me.TableLayoutPanel2.ColumnCount = 7
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.263157!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.31579!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.263157!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.31579!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.263157!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.31579!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.263157!))
+        Me.TableLayoutPanel2.Controls.Add(Me.Label2, 3, 0)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+        Me.TableLayoutPanel2.RowCount = 1
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(200, 100)
+        Me.TableLayoutPanel2.TabIndex = 0
         '
-        'DataGridView2
+        'Label2
         '
-        Me.DataGridView2.AllowUserToAddRows = False
-        Me.DataGridView2.AllowUserToDeleteRows = False
-        Me.DataGridView2.AllowUserToResizeColumns = False
-        Me.DataGridView2.AllowUserToResizeRows = False
-        Me.DataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.DataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.EnableHeadersVisualStyles = False
-        Me.DataGridView2.Location = New System.Drawing.Point(16, 257)
-        Me.DataGridView2.MultiSelect = False
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.ReadOnly = True
-        Me.DataGridView2.RowHeadersVisible = False
-        Me.DataGridView2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader
-        Me.DataGridView2.RowTemplate.Height = 25
-        Me.DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView2.ShowCellToolTips = False
-        Me.DataGridView2.ShowEditingIcon = False
-        Me.DataGridView2.Size = New System.Drawing.Size(731, 219)
-        Me.DataGridView2.TabIndex = 122
-        Me.DataGridView2.TabStop = False
+        Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(39, Byte), Integer))
+        Me.Label2.Font = New System.Drawing.Font("Arial", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label2.ForeColor = System.Drawing.SystemColors.ControlLight
+        Me.Label2.Location = New System.Drawing.Point(75, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(46, 39)
+        Me.Label2.TabIndex = 5
+        Me.Label2.Text = "BOOKS"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'TxtPhone
+        'Label3
         '
-        Me.TxtPhone.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.TxtPhone.Location = New System.Drawing.Point(270, 192)
-        Me.TxtPhone.Name = "TxtPhone"
-        Me.TxtPhone.ReadOnly = True
-        Me.TxtPhone.Size = New System.Drawing.Size(177, 21)
-        Me.TxtPhone.TabIndex = 115
-        Me.TxtPhone.Tag = """Title Field"""
+        Me.Label3.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(39, Byte), Integer))
+        Me.Label3.Font = New System.Drawing.Font("Arial", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label3.ForeColor = System.Drawing.SystemColors.ControlLight
+        Me.Label3.Location = New System.Drawing.Point(13, 0)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(186, 39)
+        Me.Label3.TabIndex = 4
+        Me.Label3.Text = "USERS"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(196, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.Label10)
+        Me.Panel2.Controls.Add(Me.Label6)
+        Me.Panel2.Controls.Add(Me.TableLayoutPanel3)
+        Me.Panel2.Controls.Add(Me.Panel3)
+        Me.Panel2.Location = New System.Drawing.Point(12, 66)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(761, 491)
+        Me.Panel2.TabIndex = 8
+        '
+        'Label10
+        '
+        Me.Label10.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(39, Byte), Integer))
+        Me.Label10.Font = New System.Drawing.Font("Arial", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label10.ForeColor = System.Drawing.SystemColors.ControlLight
+        Me.Label10.Location = New System.Drawing.Point(57, 279)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(646, 39)
+        Me.Label10.TabIndex = 15
+        Me.Label10.Text = "MOST BORROWED BOOKS"
+        Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label6
+        '
+        Me.Label6.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(39, Byte), Integer))
+        Me.Label6.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label6.ForeColor = System.Drawing.Color.FloralWhite
+        Me.Label6.Location = New System.Drawing.Point(0, 0)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(761, 37)
+        Me.Label6.TabIndex = 57
+        Me.Label6.Text = "DASHBOARD"
+        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'TableLayoutPanel3
+        '
+        Me.TableLayoutPanel3.ColumnCount = 7
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.263157!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.31579!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.263157!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.31579!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.263157!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.31579!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.263157!))
+        Me.TableLayoutPanel3.Controls.Add(Me.Label7, 3, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.Label8, 1, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.TotOverdue, 1, 1)
+        Me.TableLayoutPanel3.Controls.Add(Me.BooksReturn, 3, 1)
+        Me.TableLayoutPanel3.Controls.Add(Me.TotBorrowed, 5, 1)
+        Me.TableLayoutPanel3.Controls.Add(Me.Label9, 5, 0)
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(0, 68)
+        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
+        Me.TableLayoutPanel3.RowCount = 2
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.0!))
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(761, 198)
+        Me.TableLayoutPanel3.TabIndex = 3
         '
         'Label7
         '
         Me.Label7.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(39, Byte), Integer))
-        Me.Label7.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label7.ForeColor = System.Drawing.Color.FloralWhite
-        Me.Label7.Location = New System.Drawing.Point(16, 228)
-        Me.Label7.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label7.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label7.ForeColor = System.Drawing.SystemColors.ControlLight
+        Me.Label7.Location = New System.Drawing.Point(283, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(731, 29)
-        Me.Label7.TabIndex = 121
-        Me.Label7.Text = "ISSUED BOOKS"
+        Me.Label7.Size = New System.Drawing.Size(186, 39)
+        Me.Label7.TabIndex = 5
+        Me.Label7.Text = "BOOKS TO RETURN"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label8
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label8.Location = New System.Drawing.Point(195, 193)
+        Me.Label8.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(39, Byte), Integer))
+        Me.Label8.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label8.ForeColor = System.Drawing.SystemColors.ControlLight
+        Me.Label8.Location = New System.Drawing.Point(43, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(69, 20)
-        Me.Label8.TabIndex = 114
-        Me.Label8.Text = "Phone No"
+        Me.Label8.Size = New System.Drawing.Size(186, 39)
+        Me.Label8.TabIndex = 4
+        Me.Label8.Text = "OVERDUE BOOKS"
+        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'TxtEmail
+        'TotOverdue
         '
-        Me.TxtEmail.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.TxtEmail.Location = New System.Drawing.Point(270, 165)
-        Me.TxtEmail.Name = "TxtEmail"
-        Me.TxtEmail.ReadOnly = True
-        Me.TxtEmail.Size = New System.Drawing.Size(177, 21)
-        Me.TxtEmail.TabIndex = 113
-        Me.TxtEmail.Tag = """Title Field"""
+        Me.TotOverdue.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.TotOverdue.Font = New System.Drawing.Font("Arial", 48.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.TotOverdue.Location = New System.Drawing.Point(43, 39)
+        Me.TotOverdue.Name = "TotOverdue"
+        Me.TotOverdue.Size = New System.Drawing.Size(186, 157)
+        Me.TotOverdue.TabIndex = 0
+        Me.TotOverdue.Text = "300"
+        Me.TotOverdue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Label6
+        'BooksReturn
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label6.Location = New System.Drawing.Point(195, 166)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(54, 20)
-        Me.Label6.TabIndex = 112
-        Me.Label6.Text = "E - Mail"
+        Me.BooksReturn.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.BooksReturn.Font = New System.Drawing.Font("Arial", 48.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.BooksReturn.Location = New System.Drawing.Point(283, 39)
+        Me.BooksReturn.Name = "BooksReturn"
+        Me.BooksReturn.Size = New System.Drawing.Size(186, 157)
+        Me.BooksReturn.TabIndex = 2
+        Me.BooksReturn.Text = "300"
+        Me.BooksReturn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'TxtGender
+        'TotBorrowed
         '
-        Me.TxtGender.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.TxtGender.Location = New System.Drawing.Point(270, 138)
-        Me.TxtGender.Name = "TxtGender"
-        Me.TxtGender.ReadOnly = True
-        Me.TxtGender.Size = New System.Drawing.Size(177, 21)
-        Me.TxtGender.TabIndex = 111
-        Me.TxtGender.Tag = """Title Field"""
+        Me.TotBorrowed.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.TotBorrowed.Font = New System.Drawing.Font("Arial", 48.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.TotBorrowed.Location = New System.Drawing.Point(523, 39)
+        Me.TotBorrowed.Name = "TotBorrowed"
+        Me.TotBorrowed.Size = New System.Drawing.Size(186, 157)
+        Me.TotBorrowed.TabIndex = 1
+        Me.TotBorrowed.Text = "300"
+        Me.TotBorrowed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Label5
+        'Label9
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label5.Location = New System.Drawing.Point(195, 139)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(54, 20)
-        Me.Label5.TabIndex = 110
-        Me.Label5.Text = "Gender"
+        Me.Label9.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(39, Byte), Integer))
+        Me.Label9.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label9.ForeColor = System.Drawing.SystemColors.ControlLight
+        Me.Label9.Location = New System.Drawing.Point(523, 0)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(186, 39)
+        Me.Label9.TabIndex = 6
+        Me.Label9.Text = "TOTAL BORROWED BOOKS"
+        Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'TxtBod
+        'Panel3
         '
-        Me.TxtBod.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.TxtBod.Location = New System.Drawing.Point(270, 111)
-        Me.TxtBod.Name = "TxtBod"
-        Me.TxtBod.ReadOnly = True
-        Me.TxtBod.Size = New System.Drawing.Size(177, 21)
-        Me.TxtBod.TabIndex = 109
-        Me.TxtBod.Tag = """Title Field"""
+        Me.Panel3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel3.BackColor = System.Drawing.Color.CornflowerBlue
+        Me.Panel3.Controls.Add(Me.PictureBox5)
+        Me.Panel3.Controls.Add(Me.PictureBox4)
+        Me.Panel3.Controls.Add(Me.PictureBox3)
+        Me.Panel3.Controls.Add(Me.PictureBox2)
+        Me.Panel3.Controls.Add(Me.PictureBox1)
+        Me.Panel3.Location = New System.Drawing.Point(57, 302)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(646, 176)
+        Me.Panel3.TabIndex = 4
         '
-        'Label4
+        'PictureBox5
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label4.Location = New System.Drawing.Point(195, 112)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(61, 20)
-        Me.Label4.TabIndex = 108
-        Me.Label4.Text = "Birthdate"
+        Me.PictureBox5.ImageLocation = "C:\Users\Earl\Desktop\AP-LibraryManagementSystem\bin\Release\net6.0-windows\unkno" &
+    "wn.jpg"
+        Me.PictureBox5.Location = New System.Drawing.Point(519, 25)
+        Me.PictureBox5.Name = "PictureBox5"
+        Me.PictureBox5.Size = New System.Drawing.Size(106, 141)
+        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox5.TabIndex = 14
+        Me.PictureBox5.TabStop = False
         '
-        'TxtName
+        'PictureBox4
         '
-        Me.TxtName.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.TxtName.Location = New System.Drawing.Point(270, 84)
-        Me.TxtName.Name = "TxtName"
-        Me.TxtName.ReadOnly = True
-        Me.TxtName.Size = New System.Drawing.Size(177, 21)
-        Me.TxtName.TabIndex = 107
-        Me.TxtName.Tag = """Title Field"""
+        Me.PictureBox4.ImageLocation = "C:\Users\Earl\Desktop\AP-LibraryManagementSystem\bin\Release\net6.0-windows\unkno" &
+    "wn.jpg"
+        Me.PictureBox4.Location = New System.Drawing.Point(398, 25)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(106, 141)
+        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox4.TabIndex = 13
+        Me.PictureBox4.TabStop = False
         '
-        'Label2
+        'PictureBox3
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label2.Location = New System.Drawing.Point(195, 85)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(44, 20)
-        Me.Label2.TabIndex = 106
-        Me.Label2.Text = "Name"
+        Me.PictureBox3.ImageLocation = "C:\Users\Earl\Desktop\AP-LibraryManagementSystem\bin\Release\net6.0-windows\unkno" &
+    "wn.jpg"
+        Me.PictureBox3.Location = New System.Drawing.Point(273, 25)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(106, 141)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox3.TabIndex = 12
+        Me.PictureBox3.TabStop = False
         '
-        'TxtId
+        'PictureBox2
         '
-        Me.TxtId.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.TxtId.Location = New System.Drawing.Point(270, 57)
-        Me.TxtId.Name = "TxtId"
-        Me.TxtId.ReadOnly = True
-        Me.TxtId.Size = New System.Drawing.Size(177, 21)
-        Me.TxtId.TabIndex = 105
-        Me.TxtId.Tag = """Title Field"""
+        Me.PictureBox2.ImageLocation = "C:\Users\Earl\Desktop\AP-LibraryManagementSystem\bin\Release\net6.0-windows\unkno" &
+    "wn.jpg"
+        Me.PictureBox2.Location = New System.Drawing.Point(148, 25)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(106, 141)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 11
+        Me.PictureBox2.TabStop = False
         '
-        'Label3
+        'PictureBox1
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label3.Location = New System.Drawing.Point(195, 58)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(21, 20)
-        Me.Label3.TabIndex = 99
-        Me.Label3.Text = "ID"
-        '
-        'PicUser
-        '
-        Me.PicUser.Location = New System.Drawing.Point(10, 58)
-        Me.PicUser.Name = "PicUser"
-        Me.PicUser.Size = New System.Drawing.Size(166, 156)
-        Me.PicUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PicUser.TabIndex = 96
-        Me.PicUser.TabStop = False
+        Me.PictureBox1.ImageLocation = "C:\Users\Earl\Desktop\AP-LibraryManagementSystem\bin\Release\net6.0-windows\unkno" &
+    "wn.jpg"
+        Me.PictureBox1.Location = New System.Drawing.Point(24, 25)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(106, 141)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 10
+        Me.PictureBox1.TabStop = False
         '
         'PnlTool
         '
@@ -255,7 +397,7 @@ Partial Class HomeUser
         Me.PnlTool.Location = New System.Drawing.Point(0, 0)
         Me.PnlTool.Name = "PnlTool"
         Me.PnlTool.Size = New System.Drawing.Size(785, 45)
-        Me.PnlTool.TabIndex = 121
+        Me.PnlTool.TabIndex = 7
         '
         'HomeUser
         '
@@ -263,34 +405,52 @@ Partial Class HomeUser
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(785, 565)
+        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.PnlTool)
-        Me.Controls.Add(Me.PnlUserShow)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "HomeUser"
         Me.Text = "HomeUser"
-        Me.PnlUserShow.ResumeLayout(False)
-        Me.PnlUserShow.PerformLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PicUser, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PnlHome.ResumeLayout(False)
+        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.Panel1.ResumeLayout(False)
+        Me.TableLayoutPanel2.ResumeLayout(False)
+        Me.Panel2.ResumeLayout(False)
+        Me.TableLayoutPanel3.ResumeLayout(False)
+        Me.Panel3.ResumeLayout(False)
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents Label1 As Label
-    Friend WithEvents PnlUserShow As Panel
-    Friend WithEvents TxtPhone As TextBox
-    Friend WithEvents Label8 As Label
-    Friend WithEvents TxtEmail As TextBox
-    Friend WithEvents Label6 As Label
-    Friend WithEvents TxtGender As TextBox
+
+    Friend WithEvents PnlHome As Panel
+    Friend WithEvents Label11 As Label
+    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents Label5 As Label
-    Friend WithEvents TxtBod As TextBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents TxtName As TextBox
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Label1 As Label
+    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents Label2 As Label
-    Friend WithEvents TxtId As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents PicUser As PictureBox
-    Friend WithEvents DataGridView2 As DataGridView
-    Friend WithEvents Label7 As Label
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents Label10 As Label
+    Friend WithEvents PictureBox5 As PictureBox
+    Friend WithEvents PictureBox4 As PictureBox
+    Friend WithEvents PictureBox3 As PictureBox
+    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents PnlTool As Panel
+    Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents TotOverdue As Label
+    Friend WithEvents BooksReturn As Label
+    Friend WithEvents TotBorrowed As Label
+    Friend WithEvents Label9 As Label
 End Class

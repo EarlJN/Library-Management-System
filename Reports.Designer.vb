@@ -223,7 +223,7 @@ Partial Class Reports
         '
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.Transparent
-        Me.Label4.Location = New System.Drawing.Point(375, 51)
+        Me.Label4.Location = New System.Drawing.Point(365, 51)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(31, 15)
         Me.Label4.TabIndex = 182
@@ -254,9 +254,9 @@ Partial Class Reports
         Me.CbxDate.Font = New System.Drawing.Font("Arial Narrow", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.CbxDate.FormattingEnabled = True
         Me.CbxDate.Items.AddRange(New Object() {"DUE-DATE", "DATE-ISSUED", "DATE-RETURNED"})
-        Me.CbxDate.Location = New System.Drawing.Point(375, 74)
+        Me.CbxDate.Location = New System.Drawing.Point(365, 74)
         Me.CbxDate.Name = "CbxDate"
-        Me.CbxDate.Size = New System.Drawing.Size(110, 24)
+        Me.CbxDate.Size = New System.Drawing.Size(120, 24)
         Me.CbxDate.TabIndex = 179
         Me.CbxDate.Tag = ""
         '
