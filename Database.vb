@@ -8,6 +8,46 @@ Module Database
         con.Open()
     End Sub
 
+    Sub RemoveFines(id As String)
+        ' Open MySQL connection
+        OpenCon()
+
+        ' Define MySQL query to select records where fine > 0 and BORROWER ID matches textbox value
+        Dim query As String = "SELECT * FROM issuedbooks WHERE fine > 0 AND `BORROWER ID` = " & id
+
+        ' Create MySQL command
+        cmd = New MySqlCommand(query, con)
+
+        ' Execute MySQL command and retrieve records
+        Dim reader As MySqlDataReader = cmd.ExecuteReader()
+
+        ' Loop through records and set fine value to zero
+        While reader.Read()
+            ' Retrieve record ID
+            Dim recordID As Integer = reader.GetInt32("TRANSAC_ID")
+
+            ' Close DataReader before executing UPDATE query
+            reader.Close()
+
+            ' Set fine value to zero
+            Dim updateQuery As String = "UPDATE issuedbooks SET fine = 0 WHERE TRANSAC_ID = " & recordID
+
+            ' Create MySQL command to update record
+            Dim updateCmd As New MySqlCommand(updateQuery, con)
+
+            ' Execute MySQL command to update record
+            updateCmd.ExecuteNonQuery()
+
+            ' Open a new DataReader to continue looping through records
+            reader = cmd.ExecuteReader()
+        End While
+
+        ' Close reader
+        reader.Close()
+
+        ' Close MySQL connection
+        con.Close()
+    End Sub
     Public Function GetTop5Ids() As String()
         ' Open database connection
         OpenCon()
@@ -116,6 +156,20 @@ Module Database
         Next
 
         FeatureUserList.DataGridView2.CurrentCell = Nothing
+    End Sub
+
+    Sub ShowFines(id As String)
+        Dim table As New DataTable()
+        con.ConnectionString = SourcePath
+        Dim adapter As New MySqlDataAdapter("SELECT `BOOK`, `FINE` From lms.issuedbooks WHERE `BORROWER ID` = " & id & " AND `STATUS` != 'LOST' AND `FINE` != 0", con)
+        adapter.Fill(table)
+        CirculationFine.DataGridView1.DataSource = table
+
+        For Each DataGridColumns In CirculationFine.DataGridView1.Columns
+            DataGridColumns.SortMode = DataGridViewColumnSortMode.NotSortable
+        Next
+
+        CirculationFine.DataGridView1.CurrentCell = Nothing
     End Sub
     Sub ShowIssuedBooksUser(id As String)
         Dim table As New DataTable()
@@ -352,7 +406,14 @@ Module Database
 
         Return result
     End Function
-
+    Public Function HasFine(usid As Integer) As Boolean
+        OpenCon()
+        cmd.Connection = con
+        cmd.CommandText = "SELECT COUNT(*) FROM issuedbooks WHERE `BORROWER ID` = " & usid & " AND FINE > 0"
+        Dim result = cmd.ExecuteScalar()
+        con.Close()
+        Return Convert.ToInt32(result) > 0
+    End Function
     Public Function GetTotalBooks()
         OpenCon()
         cmd.Connection = con

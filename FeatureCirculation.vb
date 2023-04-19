@@ -56,4 +56,8 @@ Public Class FeatureCirculation
     Private Sub BtnReturnBook_Click(sender As Object, e As EventArgs) Handles BtnReturnBook.Click
         CirculationReturn.Show()
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        CirculationFine.Show()
+    End Sub
 End Class
