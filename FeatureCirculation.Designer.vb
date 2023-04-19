@@ -34,6 +34,7 @@ Partial Class FeatureCirculation
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.PnlTool = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.BtnReturnBook = New System.Windows.Forms.Button()
         Me.BtnIssueBook = New System.Windows.Forms.Button()
@@ -194,12 +195,32 @@ Partial Class FeatureCirculation
         'PnlTool
         '
         Me.PnlTool.BackColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(196, Byte), Integer))
+        Me.PnlTool.Controls.Add(Me.Button1)
         Me.PnlTool.Controls.Add(Me.TableLayoutPanel1)
         Me.PnlTool.Dock = System.Windows.Forms.DockStyle.Top
         Me.PnlTool.Location = New System.Drawing.Point(0, 0)
         Me.PnlTool.Name = "PnlTool"
         Me.PnlTool.Size = New System.Drawing.Size(785, 45)
         Me.PnlTool.TabIndex = 174
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.Transparent
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(70, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(114, Byte), Integer))
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(104, Byte), Integer))
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Button1.ForeColor = System.Drawing.Color.Black
+        Me.Button1.Location = New System.Drawing.Point(308, 0)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(154, 45)
+        Me.Button1.TabIndex = 139
+        Me.Button1.Tag = "3"
+        Me.Button1.Text = "Fine Payment"
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'TableLayoutPanel1
         '
@@ -288,4 +309,5 @@ Partial Class FeatureCirculation
     Friend WithEvents BtnIssueBook As Button
     Friend WithEvents Label4 As Label
     Friend WithEvents Label10 As Label
+    Friend WithEvents Button1 As Button
 End Class

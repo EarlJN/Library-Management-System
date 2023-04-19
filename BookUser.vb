@@ -1,13 +1,11 @@
 ﻿Public Class BookUser
     Private Sub DataGridView1_SelectColum(sender As Object, e As EventArgs) Handles DataGridView1.CellClick
-        TxtId.Text = DataGridView1.Rows(DataGridView1.CurrentCell.RowIndex).Cells(0).Value
-        TxtIsbn.Text = DataGridView1.Rows(DataGridView1.CurrentCell.RowIndex).Cells(1).Value
-        TxtTitle.Text = DataGridView1.Rows(DataGridView1.CurrentCell.RowIndex).Cells(2).Value
-        TxtGenre.Text = DataGridView1.Rows(DataGridView1.CurrentCell.RowIndex).Cells(3).Value
-        TxtAuthor.Text = DataGridView1.Rows(DataGridView1.CurrentCell.RowIndex).Cells(4).Value
-        TxtDate.Text = DataGridView1.Rows(DataGridView1.CurrentCell.RowIndex).Cells(5).Value
-        TxtPublisher.Text = DataGridView1.Rows(DataGridView1.CurrentCell.RowIndex).Cells(6).Value
-        TxtQty.Text = DataGridView1.Rows(DataGridView1.CurrentCell.RowIndex).Cells(7).Value
+        TxtIsbn.Text = GetValue("booklist", "ISBN", DataGridView1.Rows(DataGridView1.CurrentCell.RowIndex).Cells(0).Value)
+        TxtTitle.Text = GetValue("booklist", "TITLE", DataGridView1.Rows(DataGridView1.CurrentCell.RowIndex).Cells(0).Value)
+        TxtGenre.Text = GetValue("booklist", "GENRE", DataGridView1.Rows(DataGridView1.CurrentCell.RowIndex).Cells(0).Value)
+        TxtAuthor.Text = GetValue("booklist", "AUTHOR", DataGridView1.Rows(DataGridView1.CurrentCell.RowIndex).Cells(0).Value)
+        TxtDate.Text = GetValue("booklist", "PUBLISHER", DataGridView1.Rows(DataGridView1.CurrentCell.RowIndex).Cells(0).Value)
+        TxtPublisher.Text = GetValue("booklist", "`DATE-PBL`", DataGridView1.Rows(DataGridView1.CurrentCell.RowIndex).Cells(0).Value)
         BLPic.Image = Image.FromFile(GetValue("booklist", "PATH", DataGridView1.Rows(DataGridView1.CurrentCell.RowIndex).Cells(0).Value))
 
     End Sub
@@ -31,10 +29,11 @@
     End Sub
 
     Private Sub BtnResetFilter_Click(sender As Object, e As EventArgs) Handles BtnResetFilter.Click
-        UpdateTableCatalog("booklist")
+
         ClearUser(PnlBookList, BLPic)
         TxtFilter.Clear()
         CbxFilter.Text = ""
+        UpdateTableCatalogUser("booklist")
 
     End Sub
 

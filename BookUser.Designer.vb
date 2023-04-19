@@ -22,7 +22,10 @@ Partial Class BookUser
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.PnlBookList = New System.Windows.Forms.Panel()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.ChkSpecific = New System.Windows.Forms.CheckBox()
         Me.BtnResetFilter = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
@@ -33,17 +36,13 @@ Partial Class BookUser
         Me.CbxFilter = New System.Windows.Forms.ComboBox()
         Me.TxtPublisher = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.TxtQty = New System.Windows.Forms.TextBox()
         Me.TxtDate = New System.Windows.Forms.TextBox()
-        Me.TxtId = New System.Windows.Forms.TextBox()
         Me.TxtIsbn = New System.Windows.Forms.TextBox()
         Me.TxtGenre = New System.Windows.Forms.TextBox()
         Me.TxtAuthor = New System.Windows.Forms.TextBox()
         Me.TxtTitle = New System.Windows.Forms.TextBox()
         Me.BtnFilter = New System.Windows.Forms.Button()
-        Me.LblQty = New System.Windows.Forms.Label()
         Me.LblPublisher = New System.Windows.Forms.Label()
-        Me.LblID = New System.Windows.Forms.Label()
         Me.LblIsbn = New System.Windows.Forms.Label()
         Me.LblGenre = New System.Windows.Forms.Label()
         Me.LblAuthor = New System.Windows.Forms.Label()
@@ -60,6 +59,7 @@ Partial Class BookUser
         'PnlBookList
         '
         Me.PnlBookList.BackColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(196, Byte), Integer))
+        Me.PnlBookList.Controls.Add(Me.Label5)
         Me.PnlBookList.Controls.Add(Me.ChkSpecific)
         Me.PnlBookList.Controls.Add(Me.BtnResetFilter)
         Me.PnlBookList.Controls.Add(Me.DataGridView1)
@@ -70,17 +70,13 @@ Partial Class BookUser
         Me.PnlBookList.Controls.Add(Me.CbxFilter)
         Me.PnlBookList.Controls.Add(Me.TxtPublisher)
         Me.PnlBookList.Controls.Add(Me.Label2)
-        Me.PnlBookList.Controls.Add(Me.TxtQty)
         Me.PnlBookList.Controls.Add(Me.TxtDate)
-        Me.PnlBookList.Controls.Add(Me.TxtId)
         Me.PnlBookList.Controls.Add(Me.TxtIsbn)
         Me.PnlBookList.Controls.Add(Me.TxtGenre)
         Me.PnlBookList.Controls.Add(Me.TxtAuthor)
         Me.PnlBookList.Controls.Add(Me.TxtTitle)
         Me.PnlBookList.Controls.Add(Me.BtnFilter)
-        Me.PnlBookList.Controls.Add(Me.LblQty)
         Me.PnlBookList.Controls.Add(Me.LblPublisher)
-        Me.PnlBookList.Controls.Add(Me.LblID)
         Me.PnlBookList.Controls.Add(Me.LblIsbn)
         Me.PnlBookList.Controls.Add(Me.LblGenre)
         Me.PnlBookList.Controls.Add(Me.LblAuthor)
@@ -90,6 +86,16 @@ Partial Class BookUser
         Me.PnlBookList.Name = "PnlBookList"
         Me.PnlBookList.Size = New System.Drawing.Size(761, 491)
         Me.PnlBookList.TabIndex = 141
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label5.Location = New System.Drawing.Point(135, 171)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(68, 15)
+        Me.Label5.TabIndex = 138
+        Me.Label5.Text = "Date Published"
         '
         'ChkSpecific
         '
@@ -126,19 +132,39 @@ Partial Class BookUser
         Me.DataGridView1.AllowUserToResizeRows = False
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
+        Me.DataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(39, Byte), Integer))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(39, Byte), Integer))
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.DataGridView1.ColumnHeadersHeight = 30
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(151, Byte), Integer), CType(CType(250, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridView1.EnableHeadersVisualStyles = False
-        Me.DataGridView1.Location = New System.Drawing.Point(18, 256)
+        Me.DataGridView1.Location = New System.Drawing.Point(18, 236)
         Me.DataGridView1.MultiSelect = False
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.DataGridView1.RowHeadersVisible = False
-        Me.DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader
+        Me.DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.DataGridView1.RowTemplate.Height = 25
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView1.ShowCellToolTips = False
         Me.DataGridView1.ShowEditingIcon = False
-        Me.DataGridView1.Size = New System.Drawing.Size(725, 219)
+        Me.DataGridView1.Size = New System.Drawing.Size(725, 239)
         Me.DataGridView1.TabIndex = 0
         Me.DataGridView1.TabStop = False
         '
@@ -186,6 +212,7 @@ Partial Class BookUser
         '
         'CbxFilter
         '
+        Me.CbxFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CbxFilter.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.CbxFilter.FormattingEnabled = True
         Me.CbxFilter.Items.AddRange(New Object() {"Title", "Author", "Publisher"})
@@ -198,7 +225,6 @@ Partial Class BookUser
         'TxtPublisher
         '
         Me.TxtPublisher.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtPublisher.Enabled = False
         Me.TxtPublisher.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.TxtPublisher.Location = New System.Drawing.Point(206, 168)
         Me.TxtPublisher.Name = "TxtPublisher"
@@ -217,22 +243,9 @@ Partial Class BookUser
         Me.Label2.TabIndex = 125
         Me.Label2.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
-        'TxtQty
-        '
-        Me.TxtQty.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtQty.Enabled = False
-        Me.TxtQty.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.TxtQty.Location = New System.Drawing.Point(395, 85)
-        Me.TxtQty.Name = "TxtQty"
-        Me.TxtQty.ReadOnly = True
-        Me.TxtQty.Size = New System.Drawing.Size(56, 21)
-        Me.TxtQty.TabIndex = 124
-        Me.TxtQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
         'TxtDate
         '
         Me.TxtDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtDate.Enabled = False
         Me.TxtDate.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.TxtDate.Location = New System.Drawing.Point(206, 195)
         Me.TxtDate.Name = "TxtDate"
@@ -241,22 +254,9 @@ Partial Class BookUser
         Me.TxtDate.TabIndex = 123
         Me.TxtDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'TxtId
-        '
-        Me.TxtId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtId.Enabled = False
-        Me.TxtId.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.TxtId.Location = New System.Drawing.Point(395, 58)
-        Me.TxtId.Name = "TxtId"
-        Me.TxtId.ReadOnly = True
-        Me.TxtId.Size = New System.Drawing.Size(56, 21)
-        Me.TxtId.TabIndex = 122
-        Me.TxtId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
         'TxtIsbn
         '
         Me.TxtIsbn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtIsbn.Enabled = False
         Me.TxtIsbn.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.TxtIsbn.Location = New System.Drawing.Point(206, 141)
         Me.TxtIsbn.MaxLength = 10
@@ -269,7 +269,6 @@ Partial Class BookUser
         'TxtGenre
         '
         Me.TxtGenre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtGenre.Enabled = False
         Me.TxtGenre.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.TxtGenre.Location = New System.Drawing.Point(206, 114)
         Me.TxtGenre.Name = "TxtGenre"
@@ -281,7 +280,6 @@ Partial Class BookUser
         'TxtAuthor
         '
         Me.TxtAuthor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtAuthor.Enabled = False
         Me.TxtAuthor.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.TxtAuthor.Location = New System.Drawing.Point(206, 87)
         Me.TxtAuthor.Name = "TxtAuthor"
@@ -293,7 +291,6 @@ Partial Class BookUser
         'TxtTitle
         '
         Me.TxtTitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtTitle.Enabled = False
         Me.TxtTitle.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.TxtTitle.Location = New System.Drawing.Point(206, 60)
         Me.TxtTitle.MaxLength = 150
@@ -319,16 +316,6 @@ Partial Class BookUser
         Me.BtnFilter.Text = "Filter"
         Me.BtnFilter.UseVisualStyleBackColor = False
         '
-        'LblQty
-        '
-        Me.LblQty.AutoSize = True
-        Me.LblQty.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.LblQty.Location = New System.Drawing.Point(360, 83)
-        Me.LblQty.Name = "LblQty"
-        Me.LblQty.Size = New System.Drawing.Size(29, 20)
-        Me.LblQty.TabIndex = 74
-        Me.LblQty.Text = "Qty"
-        '
         'LblPublisher
         '
         Me.LblPublisher.AutoSize = True
@@ -338,16 +325,6 @@ Partial Class BookUser
         Me.LblPublisher.Size = New System.Drawing.Size(65, 20)
         Me.LblPublisher.TabIndex = 73
         Me.LblPublisher.Text = "Publisher"
-        '
-        'LblID
-        '
-        Me.LblID.AutoSize = True
-        Me.LblID.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.LblID.Location = New System.Drawing.Point(360, 58)
-        Me.LblID.Name = "LblID"
-        Me.LblID.Size = New System.Drawing.Size(21, 20)
-        Me.LblID.TabIndex = 72
-        Me.LblID.Text = "ID"
         '
         'LblIsbn
         '
@@ -451,17 +428,13 @@ Partial Class BookUser
     Friend WithEvents CbxFilter As ComboBox
     Friend WithEvents TxtPublisher As TextBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents TxtQty As TextBox
     Friend WithEvents TxtDate As TextBox
-    Friend WithEvents TxtId As TextBox
     Friend WithEvents TxtIsbn As TextBox
     Friend WithEvents TxtGenre As TextBox
     Friend WithEvents TxtAuthor As TextBox
     Friend WithEvents TxtTitle As TextBox
     Friend WithEvents BtnFilter As Button
-    Friend WithEvents LblQty As Label
     Friend WithEvents LblPublisher As Label
-    Friend WithEvents LblID As Label
     Friend WithEvents LblIsbn As Label
     Friend WithEvents LblGenre As Label
     Friend WithEvents LblAuthor As Label
@@ -469,4 +442,5 @@ Partial Class BookUser
     Friend WithEvents BLPic As PictureBox
     Friend WithEvents PnlTool As Panel
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents Label5 As Label
 End Class

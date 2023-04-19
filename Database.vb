@@ -70,11 +70,23 @@ Module Database
         adapter.Fill(table)
         BookUser.DataGridView1.DataSource = table
 
-        'For Each DataGridColumns In BookUser.DataGridView1.Columns
-        '    DataGridColumns.SortMode = DataGridViewColumnSortMode.NotSortable
-        'Next
+        BookUser.DataGridView1.DataSource = table
+
+        For Each DataGridColumns In BookUser.DataGridView1.Columns
+            DataGridColumns.SortMode = DataGridViewColumnSortMode.NotSortable
+        Next
 
         BookUser.DataGridView1.CurrentCell = Nothing
+        BookUser.DataGridView1.Columns(0).Visible = False
+        BookUser.DataGridView1.Columns(1).Visible = False
+        BookUser.DataGridView1.Columns(7).Visible = False
+
+        BookUser.DataGridView1.Columns(3).AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+        BookUser.DataGridView1.Columns(3).Width = 80
+
+        BookUser.DataGridView1.Columns(6).AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+        BookUser.DataGridView1.Columns(6).Width = 80
+
 
     End Sub
 

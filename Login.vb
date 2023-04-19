@@ -20,7 +20,6 @@ Public Class Login
             frm.BtnCirculation.Visible = False
             frm.BtnReports.Visible = False
             frm.usid = usid
-            MsgBox(usid)
             frm.Welcome.Text = "Welcome Back, " & GetValue("userlist", "NAME", usid) & "!"
             'frm.ShowUser(usid)
             frm.ShowHomeUser()
