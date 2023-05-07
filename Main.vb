@@ -83,7 +83,7 @@ Public Class Main
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
         Me.Hide()
         Login.Show()
         Login.TxtPass.Clear()
@@ -164,9 +164,13 @@ Public Class Main
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        Me.Hide()
-        Login.Show()
-        Login.TxtPass.Clear()
-        Login.TxtUser.Clear()
+        ActiveBtn(CType(sender, Button))
+        If MessageBox.Show("Are you sure you want to log out?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+            Me.Hide()
+            Login.Show()
+            Login.TxtPass.Clear()
+            Login.TxtUser.Clear()
+        End If
     End Sub
+
 End Class

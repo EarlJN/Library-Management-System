@@ -6,28 +6,26 @@ Public Class Login
         Dim usid As Integer = GetValueID(TxtUser.Text)
 
         If TxtUser.Text = "" Or TxtPass.Text = "" Then
-            MsgBox("Empty field detecteted, please enter all the required details.")
+            MsgBox("Empty field detecteted, please enter all the required details.", 48, "LOGIN")
 
-        ElseIf TxtUser.Text = "911" And TxtPass.Text = "admin" Then
+        ElseIf TxtUser.Text = "adm911" And TxtPass.Text = "admin" Then
             frm.Show()
             frm.BtnUserList.Visible = True
             frm.BtnCirculation.Visible = True
             frm.usid = "admin"
-            frm.Welcome.Text = "Welcome Back, Admin!"
             frm.ShowHome()
             Me.Hide()
         ElseIf TxtPass.Text = GetValue("userlist", "PASS", usid) And TxtUser.Text = GetValue("userlist", "USERNAME", usid) Then
             frm.BtnCirculation.Visible = False
             frm.BtnReports.Visible = False
             frm.usid = usid
-            frm.Welcome.Text = "Welcome Back, " & GetValue("userlist", "NAME", usid) & "!"
             'frm.ShowUser(usid)
             frm.ShowHomeUser()
             frm.Show()
             Me.Hide()
 
         Else
-            MsgBox("Wrong User ID or Password.")
+            MsgBox("Wrong User ID or Password.", 48, "LOGIN")
         End If
 
     End Sub

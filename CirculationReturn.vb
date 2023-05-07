@@ -49,6 +49,15 @@ Public Class CirculationReturn
     End Sub
 
     Private Sub btnSrcIssue_Click(sender As Object, e As EventArgs) Handles btnSrcIssue.Click
+        If ReUserID.Text = "" Then
+            MsgBox("User ID field is empty. Please insert the necessary details.", 0, "Library Management System")
+            Return
+        End If
+        If Not CheckIDExistsUser(ReUserID.Text) Then
+            MsgBox("User does not exist.", 0, "Library Management System")
+            Return
+        End If
+
 
         ReUserID.Enabled = False
         btncount = CountToReturn(ReUserID.Text)

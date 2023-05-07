@@ -55,22 +55,22 @@
 
 
         If GetValue("userlist", "NAME", TxtAccID.Text) = "" Then
-            MsgBox("User ID doesn't exist, please try again.")
+            MsgBox("User ID doesn't exist, please try again.", 48, "Forgot Password")
             Return
         End If
 
         If TxtPass.Text <> TxtConPass.Text Then
-            MsgBox("Password does not match. Please try again.")
+            MsgBox("Password does not match. Please try again.", 48, "Forgot Password")
             Return
         End If
 
         If Len(TxtPass.Text) < 8 Or upper.Matches(TxtPass.Text).Count < 1 Or lower.Matches(TxtPass.Text).Count < 1 Or number.Matches(TxtPass.Text).Count < 1 Or special.Matches(TxtPass.Text).Count < 1 Then
-            MsgBox("Password requirements not met. Please try again.")
+            MsgBox("Password requirements not met. Please try again.", 48, "Forgot Password")
             Return
         End If
 
         If txtOtp.Text <> "081803" Then
-            MsgBox("Wrong OTP, please try again.")
+            MsgBox("Wrong OTP, please try again.", 48, "Forgot Password")
             Return
         End If
 

@@ -135,9 +135,9 @@ Partial Class Login
         Me.Label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Label1.Location = New System.Drawing.Point(23, 23)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(71, 18)
+        Me.Label1.Size = New System.Drawing.Size(98, 18)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "USER ID"
+        Me.Label1.Text = "USERNAME"
         '
         'Login
         '

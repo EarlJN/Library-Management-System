@@ -76,18 +76,21 @@ Public Class UserEdit
             TxtDelPath.Text = System.IO.Path.GetFileName(OpenFileDialog1.FileName)
         End If
     End Sub
-
     Private Sub BtnEditUser_Click(sender As Object, e As EventArgs) Handles BtnEditUser.Click
         Dim emptyTextBoxes = From txt In PnlDelUser.Controls.OfType(Of TextBox)() Where txt.Text.Length = 0 Select txt.Name
         If emptyTextBoxes.Any Then
-            MessageBox.Show(String.Format("Please fill following textboxes: {0}",
-                    String.Join(", ", emptyTextBoxes)))
-
+            MessageBox.Show(String.Format("Please fill following textboxes: {0}", String.Join(", ", emptyTextBoxes)))
             Return
         End If
 
         If TxtDelPhone.TextLength < 10 Then
             MsgBox("Phone number must consists of 10 digits.")
+            Return
+        End If
+
+        Dim result = MsgBox("Are you sure you want to edit this user?", MsgBoxStyle.OkCancel, "LMS - Confirmation")
+        If result = MsgBoxResult.Cancel Then
+            MsgBox("Edit canceled.", 0, "LMS - Confirmation")
             Return
         End If
 
@@ -98,17 +101,19 @@ Public Class UserEdit
         MsgBox("USER ID: " & TxtDelSrc.Text & " is successfully edited.")
         con.Close()
 
-
         ClearUser(PnlDelUser, PicEditUser, DtpDelBod)
         BtnDelUser.Enabled = False
         BtnEditUser.Enabled = False
         BtnEditSrc.Enabled = True
         UpdateTableUser("userlist")
-
-
     End Sub
 
     Private Sub BtnDelUser_Click(sender As Object, e As EventArgs) Handles BtnDelUser.Click
+        Dim result = MsgBox("Are you sure you want to delete this user?", MsgBoxStyle.OkCancel, "LMS - Confirmation")
+        If result = MsgBoxResult.Cancel Then
+            MsgBox("Deletion canceled.", 0, "LMS - Confirmation")
+            Return
+        End If
 
         OpenCon()
         cmd.Connection = con
@@ -129,8 +134,8 @@ Public Class UserEdit
         BtnEditUser.Enabled = False
         BtnEditSrc.Enabled = True
         UpdateTableUser("userlist")
-
     End Sub
+
 
     Private Sub Ten_Digit(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TxtDelPhone.KeyPress
         If Asc(e.KeyChar) = 8 Then

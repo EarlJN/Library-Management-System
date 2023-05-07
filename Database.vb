@@ -142,6 +142,17 @@ Module Database
         Next
 
         FeatureUserList.DataGridView1.CurrentCell = Nothing
+        FeatureUserList.DataGridView1.Columns(0).AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+        FeatureUserList.DataGridView1.Columns(0).Width = 60
+
+        FeatureUserList.DataGridView1.Columns(2).AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+        FeatureUserList.DataGridView1.Columns(2).Width = 80
+
+        FeatureUserList.DataGridView1.Columns(3).AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+        FeatureUserList.DataGridView1.Columns(3).Width = 100
+
+        FeatureUserList.DataGridView1.Columns(5).AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+        FeatureUserList.DataGridView1.Columns(5).Width = 100
 
     End Sub
     Sub ShowIssuedBooks(id As String)
@@ -174,7 +185,7 @@ Module Database
     Sub ShowIssuedBooksUser(id As String)
         Dim table As New DataTable()
         con.ConnectionString = SourcePath
-        Dim adapter As New MySqlDataAdapter("SELECT `BOOK ID`, `BOOK`, `DATE-ISSUED`, `DUE-DATE`, `STATUS` From lms.issuedbooks WHERE `BORROWER ID` = " & id & " AND `STATUS` != 'LOST'", con)
+        Dim adapter As New MySqlDataAdapter("SELECT `BOOK`, `DATE-ISSUED`, `DUE-DATE`, `STATUS` From lms.issuedbooks WHERE `BORROWER ID` = " & id & " AND `STATUS` != 'LOST'", con)
         adapter.Fill(table)
         AccUser.DataGridView2.DataSource = table
 
@@ -663,5 +674,31 @@ Module Database
         Reports.DataGridView1.CurrentCell = Nothing
         cmd.Parameters.Clear()
     End Sub
+
+    Function CheckIDExistsBook(id As String) As Boolean
+        Dim exists As Boolean = False
+        OpenCon()
+        cmd.Connection = con
+        cmd.CommandText = "SELECT COUNT(*) FROM `lms`.`booklist` WHERE (`ID` = '" & id & "');"
+        Dim count = cmd.ExecuteScalar()
+        If count > 0 Then
+            exists = True
+        End If
+        con.Close()
+        Return exists
+    End Function
+
+    Function CheckIDExistsUser(id As String) As Boolean
+        Dim exists As Boolean = False
+        OpenCon()
+        cmd.Connection = con
+        cmd.CommandText = "SELECT COUNT(*) FROM `lms`.`userlist` WHERE (`ID` = '" & id & "');"
+        Dim count = cmd.ExecuteScalar()
+        If count > 0 Then
+            exists = True
+        End If
+        con.Close()
+        Return exists
+    End Function
 
 End Module

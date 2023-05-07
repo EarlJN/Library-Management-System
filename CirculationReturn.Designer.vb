@@ -97,6 +97,8 @@ Partial Class CirculationReturn
         '
         Me.btnSrcIssue.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(39, Byte), Integer))
         Me.btnSrcIssue.FlatAppearance.BorderSize = 0
+        Me.btnSrcIssue.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(238, Byte), Integer))
+        Me.btnSrcIssue.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(229, Byte), Integer))
         Me.btnSrcIssue.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSrcIssue.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.btnSrcIssue.ForeColor = System.Drawing.Color.FloralWhite
@@ -112,6 +114,8 @@ Partial Class CirculationReturn
         Me.btnCnlIssue.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(39, Byte), Integer))
         Me.btnCnlIssue.Enabled = False
         Me.btnCnlIssue.FlatAppearance.BorderSize = 0
+        Me.btnCnlIssue.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(238, Byte), Integer))
+        Me.btnCnlIssue.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(229, Byte), Integer))
         Me.btnCnlIssue.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCnlIssue.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.btnCnlIssue.ForeColor = System.Drawing.Color.FloralWhite

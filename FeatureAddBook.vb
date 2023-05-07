@@ -16,7 +16,7 @@
             cmd.Connection = con
             cmd.CommandText = "INSERT INTO booklist (`ISBN`,`TITLE`, `GENRE`, `AUTHOR`, `PUBLISHER`, `DATE-PBL`, `QTY`, `PATH`) VALUES ('" & TxtIsbn.Text & "', '" & TxtTitle.Text & "', '" & CbxGenre.SelectedItem & "', '" & TxtAuthor.Text & "', '" & TxtPublisher.Text & "', '" & DtpRecieved.Text & "', '" & TxtQuantity.Text & "', '" & TxtPath.Text & "')"
             cmd.ExecuteNonQuery()
-            MsgBox(TxtTitle.Text & "is successfully added.")
+            MsgBox(TxtTitle.Text & " is successfully added.", 0, "LMS - Add Book")
             con.Close()
         ElseIf result = DialogResult.Cancel Then
             Return

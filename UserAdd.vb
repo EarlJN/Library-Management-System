@@ -11,7 +11,7 @@
         Dim emptyTextBoxes = From txt In PnlAddUser.Controls.OfType(Of TextBox)() Where txt.Text.Length = 0 Select txt.Name
         If emptyTextBoxes.Any Then
             MessageBox.Show(String.Format("Please fill following textboxes: {0}",
-                    String.Join(", ", emptyTextBoxes)))
+                String.Join(", ", emptyTextBoxes)))
             Return
         End If
 
@@ -20,10 +20,10 @@
             Return
         End If
 
-        Dim result = MsgBox("Are you sure you want to add this book?", MsgBoxStyle.OkCancel, "LMS - Confirmation")
+        Dim result = MessageBox.Show("Are you sure you want to add this user?", "LMS - Confirmation", MessageBoxButtons.OKCancel)
 
-        If result = MsgBoxResult.Cancel Then
-            MsgBox("okay cancel")
+        If result = DialogResult.Cancel Then
+            MsgBox("Add user operation was cancelled.")
             Return
         End If
 
@@ -35,7 +35,6 @@
         con.Close()
         ClearUser(PnlAddUser, PicAddUser, DtpBod)
         UpdateTableUser("userlist")
-
     End Sub
 
     Private Sub Ten_Digit(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TxtPhone.KeyPress

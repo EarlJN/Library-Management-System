@@ -16,7 +16,7 @@ Public Class FeatureCatalogList
 
     End Sub
 
-    Private Sub DataGridView1_KeyDown(sender As Object, e As KeyEventArgs) Handles DataGridView1.KeyDown
+    Private Sub DataGridView1_KeyDown(sender As Object, e As KeyEventArgs)
         e.Handled = True
     End Sub
 

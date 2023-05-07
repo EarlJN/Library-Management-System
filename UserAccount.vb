@@ -106,6 +106,12 @@ Public Class UserAccount
             MsgBox("Account ID field is empty please insert a value.")
             Return
         End If
+
+        If TxtAccID.Text = "" Then
+            MsgBox("Account ID field is empty please insert a value.")
+            Return
+        End If
+
         BtnAccCancel.Enabled = True
         TxtPass.Enabled = True
         TxtConPass.Enabled = True

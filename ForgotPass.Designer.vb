@@ -243,6 +243,7 @@ Partial Class ForgotPass
         Me.Controls.Add(Me.TxtPass)
         Me.Controls.Add(Me.Label19)
         Me.Controls.Add(Me.BtnCreate)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "ForgotPass"
         Me.Text = "ForgotPass"
         Me.ResumeLayout(False)

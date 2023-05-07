@@ -555,7 +555,7 @@ Partial Class HomeAdmin
         Me.Controls.Add(Me.PnlTool)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "HomeAdmin"
-        Me.Text = "HomeAdmin"
+        Me.Text = "f"
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()

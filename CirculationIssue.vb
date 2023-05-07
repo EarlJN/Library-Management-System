@@ -26,10 +26,15 @@ Public Class CirculationIssue
 
         SubtractQty(bookid)
         UpdateTableCirculation()
-        MsgBox(title & " has been issued to " & name & " in " & DtpIs.Text, MsgBoxStyle.OkOnly, "Library Management System")
+
 
     End Sub
     Private Sub btnIssue_Click(sender As Object, e As EventArgs) Handles btnIssue.Click
+        If DtpIs.Value.ToString("yyyy/MM/dd") > DtpDue.Value.ToString("yyyy/MM/dd") Then
+            MsgBox("Due date is less than the issue date. Please pick a valid date.", MsgBoxStyle.OkOnly, "Library Management System")
+            Return
+        End If
+
         If DataGridView1.Rows.Count = Nothing Then
             MsgBox("The list is empty. Please add the books to borrow.", MsgBoxStyle.OkOnly, "Library Management System")
             Return
@@ -95,20 +100,21 @@ Public Class CirculationIssue
         End If
 
         If GetValueActive("booklist", "ID", IsBookID.Text) = Nothing Then
-            MsgBox("The BOOK doesn't exist")
-            Return
-        End If
-        If HasFine(IsUserID.Text) Then
-            MsgBox("The user has outstanding fines that should be paid.")
+            MsgBox("The BOOK doesn't exist", 0, "LMS - Book ID")
             Return
         End If
         If CountOverdue(IsUserID.Text) > 0 Then
-            MsgBox("The user has an overdue. It must be settled before the user can borrow another book.")
+            MsgBox("The user has an overdue. It must be settled before the user can borrow another book.", 0, "LMS - Issuance")
+            Return
+        End If
+        If HasFine(IsUserID.Text) Then
+            MsgBox("The user has outstanding fines that should be paid.", 0, "LMS - Issuance")
             Return
         End If
 
+
         If (CountBooksBorrowed(IsUserID.Text) + DataGridView1.Rows.Count + 1) > 5 Then
-            MsgBox("A user can only borrow 5 books at a time.")
+            MsgBox("A user can only borrow 5 books at a time.", 0, "LMS - Issuance")
             Return
         End If
 
@@ -154,7 +160,7 @@ Public Class CirculationIssue
         End If
 
         If GetValueActive("userlist", "ID", IsUserID.Text) = Nothing Then
-            MsgBox("The USER doesn't exist")
+            MsgBox("The USER doesn't exist", 0, "LMS - User ID")
             Return
         End If
 
@@ -204,7 +210,7 @@ Public Class CirculationIssue
         Dim line As String
         line = "****************************************************************"
         e.Graphics.DrawString("ISSUANCE RECEIPT", f10, Brushes.Black, centermargin, 40, center)
-        e.Graphics.DrawString("HELLO", f10, Brushes.Black, centermargin, 55, center)
+        e.Graphics.DrawString("LIBRARY MANAGEMENT SYSTEM", f10, Brushes.Black, centermargin, 55, center)
         e.Graphics.DrawString("User's Name : ", f8, Brushes.Black, 5, 75)
         e.Graphics.DrawString(GetValue("userlist", "NAME", IsUserID.Text), f8, Brushes.Black, 70, 75) ' Customer name placeholder
         e.Graphics.DrawString("Issue Date: ", f8, Brushes.Black, 5, 85)
@@ -227,7 +233,7 @@ Public Class CirculationIssue
         height2 = 145 + height
         e.Graphics.DrawString(line, f8, Brushes.Black, 0, height2)
         e.Graphics.DrawString("Total Books: " & DataGridView1.RowCount, f10b, Brushes.Black, rightmargin, 10 + height2, right)
-        e.Graphics.DrawString("THANK YOU BORROWING!", f10, Brushes.Black, centermargin, 70 + height2, center)
+        e.Graphics.DrawString("THANK YOU FOR BORROWING!", f10, Brushes.Black, centermargin, 70 + height2, center)
 
     End Sub
 

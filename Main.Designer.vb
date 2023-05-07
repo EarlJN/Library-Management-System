@@ -26,8 +26,6 @@ Partial Class Main
         Me.PanelFeature = New System.Windows.Forms.Panel()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Welcome = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.BtnBookList = New System.Windows.Forms.Button()
         Me.BtnDashboard = New System.Windows.Forms.Button()
@@ -48,8 +46,6 @@ Partial Class Main
         Me.PanelFeature.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(39, Byte), Integer))
         Me.PanelFeature.Controls.Add(Me.Button4)
         Me.PanelFeature.Controls.Add(Me.Panel1)
-        Me.PanelFeature.Controls.Add(Me.Button1)
-        Me.PanelFeature.Controls.Add(Me.Welcome)
         Me.PanelFeature.Controls.Add(Me.TableLayoutPanel1)
         Me.PanelFeature.Location = New System.Drawing.Point(-8, -1)
         Me.PanelFeature.Name = "PanelFeature"
@@ -84,30 +80,6 @@ Partial Class Main
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(532, 563)
         Me.Panel1.TabIndex = 3
-        '
-        'Button1
-        '
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Button1.ForeColor = System.Drawing.Color.DarkRed
-        Me.Button1.Location = New System.Drawing.Point(77, 74)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Log Out"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Welcome
-        '
-        Me.Welcome.AutoSize = True
-        Me.Welcome.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Welcome.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Welcome.Location = New System.Drawing.Point(20, 100)
-        Me.Welcome.Name = "Welcome"
-        Me.Welcome.Size = New System.Drawing.Size(132, 15)
-        Me.Welcome.TabIndex = 1
-        Me.Welcome.Text = "Welcome Back, Admin!"
         '
         'TableLayoutPanel1
         '
@@ -316,7 +288,6 @@ Partial Class Main
         Me.Name = "Main"
         Me.Text = "Library Management System"
         Me.PanelFeature.ResumeLayout(False)
-        Me.PanelFeature.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
         Me.TableLayoutPanel2.ResumeLayout(False)
@@ -331,8 +302,6 @@ Partial Class Main
     Friend WithEvents BtnDashboard As Button
     Friend WithEvents PanelMain As Panel
     Friend WithEvents BtnCirculation As Button
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Welcome As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents BtnReports As Button
     Friend WithEvents Button4 As Button

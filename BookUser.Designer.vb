@@ -101,7 +101,7 @@ Partial Class BookUser
         '
         Me.ChkSpecific.AutoSize = True
         Me.ChkSpecific.Font = New System.Drawing.Font("Arial Narrow", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.ChkSpecific.Location = New System.Drawing.Point(595, 164)
+        Me.ChkSpecific.Location = New System.Drawing.Point(661, 114)
         Me.ChkSpecific.Name = "ChkSpecific"
         Me.ChkSpecific.Size = New System.Drawing.Size(82, 20)
         Me.ChkSpecific.TabIndex = 137
@@ -117,7 +117,7 @@ Partial Class BookUser
         Me.BtnResetFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnResetFilter.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.BtnResetFilter.ForeColor = System.Drawing.Color.FloralWhite
-        Me.BtnResetFilter.Location = New System.Drawing.Point(692, 193)
+        Me.BtnResetFilter.Location = New System.Drawing.Point(692, 141)
         Me.BtnResetFilter.Name = "BtnResetFilter"
         Me.BtnResetFilter.Size = New System.Drawing.Size(51, 22)
         Me.BtnResetFilter.TabIndex = 131
@@ -172,7 +172,7 @@ Partial Class BookUser
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label4.Location = New System.Drawing.Point(527, 133)
+        Me.Label4.Location = New System.Drawing.Point(479, 85)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(62, 20)
         Me.Label4.TabIndex = 130
@@ -195,16 +195,16 @@ Partial Class BookUser
         '
         Me.TxtFilter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TxtFilter.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.TxtFilter.Location = New System.Drawing.Point(595, 132)
+        Me.TxtFilter.Location = New System.Drawing.Point(547, 84)
         Me.TxtFilter.Name = "TxtFilter"
-        Me.TxtFilter.Size = New System.Drawing.Size(148, 26)
+        Me.TxtFilter.Size = New System.Drawing.Size(196, 26)
         Me.TxtFilter.TabIndex = 129
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label3.Location = New System.Drawing.Point(527, 106)
+        Me.Label3.Location = New System.Drawing.Point(479, 58)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(58, 20)
         Me.Label3.TabIndex = 128
@@ -215,10 +215,10 @@ Partial Class BookUser
         Me.CbxFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CbxFilter.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.CbxFilter.FormattingEnabled = True
-        Me.CbxFilter.Items.AddRange(New Object() {"Title", "Author", "Publisher"})
-        Me.CbxFilter.Location = New System.Drawing.Point(595, 101)
+        Me.CbxFilter.Items.AddRange(New Object() {"Title", "Author", "Publisher", "`DATE-PBL`"})
+        Me.CbxFilter.Location = New System.Drawing.Point(547, 53)
         Me.CbxFilter.Name = "CbxFilter"
-        Me.CbxFilter.Size = New System.Drawing.Size(148, 25)
+        Me.CbxFilter.Size = New System.Drawing.Size(196, 25)
         Me.CbxFilter.TabIndex = 127
         Me.CbxFilter.Tag = "Genre Field"
         '
@@ -309,7 +309,7 @@ Partial Class BookUser
         Me.BtnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnFilter.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.BtnFilter.ForeColor = System.Drawing.Color.FloralWhite
-        Me.BtnFilter.Location = New System.Drawing.Point(635, 193)
+        Me.BtnFilter.Location = New System.Drawing.Point(619, 141)
         Me.BtnFilter.Name = "BtnFilter"
         Me.BtnFilter.Size = New System.Drawing.Size(51, 22)
         Me.BtnFilter.TabIndex = 114

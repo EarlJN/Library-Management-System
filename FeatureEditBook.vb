@@ -88,7 +88,7 @@ Public Class FeatureEditBook
             cmd.Connection = con
             cmd.CommandText = "UPDATE `lms`.`booklist` SET `ISBN` = '" & TxtDelIsbn.Text & "', `PATH` = '" & TxtDelPath.Text & "', `TITLE` = '" & TxtDelTitle.Text & "', `GENRE` = '" & CbxDelGenre.SelectedItem & "', `AUTHOR` = '" & TxtDelAuthor.Text & "', `PUBLISHER` = '" & TxtDelPublisher.Text & "', `PATH` = '" & TxtDelPath.Text & "', `DATE-PBL` = '" & DtpDelRecieved.Text & "', `QTY` = '" & TxtDelQty.Text & "'  WHERE (`ID` = '" & TxtDelId.Text & "');"
             cmd.ExecuteNonQuery()
-            MsgBox("BOOK ID: " & TxtDelId.Text & " is successfully added.")
+            MsgBox("BOOK ID: " & TxtDelId.Text & " is successfully edited.", 0, "LMS - Edit Book")
             con.Close()
         ElseIf result = DialogResult.Cancel Then
             Return
@@ -115,7 +115,7 @@ Public Class FeatureEditBook
             cmd.Connection = con
             cmd.CommandText = "UPDATE `lms`.`booklist` SET `INACTIVE` = '1' WHERE (`ID` = '" & TxtDelId.Text & "');"
             cmd.ExecuteNonQuery()
-            MsgBox(TxtDelId.Text & " is successfully added.")
+            MsgBox("BOOK ID: " & TxtDelId.Text & " is successfully deleted.", 0, "LMS - Delete Book")
             con.Close()
             ClearUser(PnlDelBook, PicDelBook, DtpDelRecieved)
             BtnSearch.Enabled = True
